@@ -1349,7 +1349,7 @@ public:
   String getCLK(void);
 
   /**
-   * @fn rest
+   * @fn rest(uint8_t mode = 1)
    * @brief 模块软复位
    * @return bool类型，复位操作是否成功
    * @retval 1 成功
@@ -1360,12 +1360,12 @@ public:
   /**
    * @fn getQCCID
    * @brief get USIM card identification number
-   * @return String类型，USIM card identification number
+   * @return String类型
    */
   String getQCCID(void);
 
   /*!
-   * @fn getQCCID
+   * @fn setQSCLK
    * @brief 设置低功耗模式
    * @param mode
    * @n      0 Disable Sleep Mode.
@@ -1411,13 +1411,11 @@ public:
    * @fn getQGNSSRD2
    * @brief 获取所有的卫星信息（为了arduino uno等RAM空间比较小的特制）
    * @return uint8_t类型
-   * @retval 1 获取成功
-   * @retval 0 获取失败
    */
   uint8_t getQGNSSRD2(void);
 
   /*!
-   * @fn getQGNSSRD
+   * @fn getQGNSSRD(char* sth)
    * @brief 获取某一种的卫星信息
    * @param sth
    * @n		 NMEA_GGA
@@ -1549,7 +1547,7 @@ public:
   bool subTopic(char connectID, char msgID, char* topic, char qos);
 
   /**
-   * @fn publish
+   * @fn publish(char* topic,char* msg)
    * @brief 发布MQTT信息
    * @param topic
    * @param msg
@@ -1611,7 +1609,7 @@ public:
   /**
    * @fn setPSMMode
    * @brief 设置BC20进入PSM模式
-   * @param mode
+   * @param status
    * @n     ePSM_OFF
    * @n     ePSM_ON
    * @n     ePSM_OFF_ResetParam
@@ -1633,7 +1631,7 @@ public:
   uint8_t getNum(char* str);
 
   /**
-   * @fn removeSthString
+   * @fn removeSthString(char* sth, char* str)
    * @brief 从一串字符中移除某一部分字符串
    * @param sth 等待分析的字符串
    * @param str 作为保留的字符串
@@ -1642,7 +1640,7 @@ public:
   char*removeSthString(char* sth, char* str);
 
   /**
-   * @fn removeSthString
+   * @fn removeSthString(String sth, String str)
    * @brief 从一串字符中移除某一部分字符串
    * @param sth 等待分析的字符串
    * @param str 作为移除的字符串
@@ -1651,7 +1649,7 @@ public:
   String removeSthString(String sth, String str);
 
   /**
-   * @fn GetSthfrontString
+   * @fn GetSthfrontString(char* sth, char* str)
    * @brief 从一串字符中获取某一部分字符串
    * @param sth 等待分析的字符串
    * @param str 作为保留的字符串
@@ -1660,7 +1658,7 @@ public:
   char* GetSthfrontString(char* sth, char* str);
 
   /**
-   * @fn GetSthfrontString
+   * @fn GetSthfrontString(String sth, String str)
    * @brief 从一串字符中获取某一部分字符串
    * @param sth 等待分析的字符串
    * @param str 作为保留的字符串
@@ -1755,16 +1753,16 @@ public:
   void changeColor(uint8_t newColor);
 
   /**
-   * @fn controlLED
+   * @fn controlLED(char * chr)
    * @brief 控制LED灯的所有操作
    * @param chr 控制命令
    */
   void controlLED(char * chr);
 
   /**
-   * @fn controlLED
+   * @fn controlLED(String str)
    * @brief 控制LED灯的所有操作
-   * @param chr 控制命令
+   * @param str 控制命令
    */
   void controlLED(String str);
 
@@ -1788,28 +1786,28 @@ public:
   bool stmWakeup(uint8_t Awake_Pin);
 
   /**
-   * @fn sendATCMD
+   * @fn sendATCMD(char* str)
    * @brief 主控向模组发送数据，由子类来具体实现
-   * @param str 
+   * @param str
    */
   virtual void sendATCMD(char* str) =0;
 
   /**
-   * @fn sendATCMD
+   * @fn sendATCMD(String str)
    * @brief 主控向模组发送数据，由子类来具体实现
    * @param str
    */
   virtual void sendATCMD(String str) =0;
 
   /**
-   * @fn sendATCMD
+   * @fn sendATCMD(uint8_t num)
    * @brief 主控向模组发送数据，由子类来具体实现
    * @param num
    */
   virtual void sendATCMD(uint8_t num) =0;
 
   /**
-   * @fn sendATCMD
+   * @fn sendATCMD(String str,uint8_t num)
    * @brief 主控向模组发送数据，由子类来具体实现
    * @param str
    * @param num
@@ -1817,7 +1815,7 @@ public:
   virtual void sendATCMD(String str,uint8_t num) =0;
 
   /**
-   * @fn sendATCMD
+   * @fn sendATCMD(String str,String cmd)
    * @brief 主控向模组发送数据，由子类来具体实现
    * @param str
    * @param cmd
@@ -1832,7 +1830,7 @@ public:
   virtual String readData(void) =0;
 
   /**
-   * @fn readData
+   * @fn receviceATCMD
    * @brief 从模组获取数据
    * @param timeout 持续时间内一直读取
    */
@@ -1870,7 +1868,7 @@ public:
   void sendATCMD(uint8_t num);
   void sendATCMD(String str, uint8_t num);
   void sendATCMD(String str, String cmd);
-  String readData();
+  String readData(void);
   void receviceATCMD(uint32_t timeout);
   void sendATCMDBychar(char str);
   bool available(void);
@@ -1888,7 +1886,7 @@ public:
   void sendATCMD(uint8_t num);
   void sendATCMD(String str,uint8_t num);
   void sendATCMD(String str,String cmd);
-  String readData();
+  String readData(void);
   void receviceATCMD(uint32_t timeout);
   void sendATCMDBychar(char str);
   bool available(void);
@@ -1906,7 +1904,7 @@ public:
   void sendATCMD(uint8_t num);
   void sendATCMD(String str,uint8_t num);
   void sendATCMD(String str,String cmd);
-  String readData();
+  String readData(void);
   void receviceATCMD(uint32_t timeout);
   void sendATCMDBychar(char str);
   bool available(void);
