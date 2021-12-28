@@ -5,7 +5,7 @@ Gravity：I2C & UART BC20 NB-IoT & GNSS通信模块是具有NB-IoT低功耗蜂�
 
 此外，模块带有GPS/BeiDou双星精确定位功能，只要将定位天线置于室外即可获取精确的地理坐标和授时信息，实时监控设备的物理位置。用户可通过板载RGB指示灯，清晰了解模块的各类工作状态。为了兼容常见的Arduino、micro:bit、掌控和树莓派等各类3.3V/5V开发板，模块还采用了Gravity I2C & UART复合标准接口，并对这些创客用户常用的开发板在软件上作了全面支持。
 
-![正反面svg效果图](./resources/image/TEL0130.png)
+![正反面svg效果图](./resources/images/TEL0130.png)
 
 ## 产品链接(https://www.dfrobot.com/)
   SKU: TEL0130
