@@ -5,7 +5,7 @@
  *@Copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
  *@licence     The MIT License (MIT)
  *@author      [Peng kaixing](kaixing.peng@dfrobot.com)
- *@version  V1.0
+ *@version  V1.0.0
  *@date   2020-3-19
  *@get from https://www.dfrobot.com
  *@get from https://www.dfrobot.com.cn

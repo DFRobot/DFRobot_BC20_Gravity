@@ -1,29 +1,32 @@
 # DFRobot_BC20_Gravity
 - [English Version](./README.md)
 
-该库用于捕获和解析卫星数据，并与物联网平台进行通信。
+Gravity：I2C & UART BC20 NB-IoT & GNSS通信模块是具有NB-IoT低功耗蜂窝通信和GPS/BeiDou双星精确定位功能的物联网通信模块。只要设备所在地区在NB-IoT信号覆盖范围内，无论在室内外均可轻松将开发板或设备采集的各类数据上传至云端，当然也可以通过云端发送指令来远程控制设备，实现云端与真实设备的双向通信与控制，实现“物联”，尤其适用于环境监控站、共享单车、车载定位追踪器等户外物联网应用场景。
 
-![正反面svg效果图](./resources/images/TEL0130svg.png)
+此外，模块带有GPS/BeiDou双星精确定位功能，只要将定位天线置于室外即可获取精确的地理坐标和授时信息，实时监控设备的物理位置。用户可通过板载RGB指示灯，清晰了解模块的各类工作状态。为了兼容常见的Arduino、micro:bit、掌控和树莓派等各类3.3V/5V开发板，模块还采用了Gravity I2C & UART复合标准接口，并对这些创客用户常用的开发板在软件上作了全面支持。
 
-## Product Link (Link to DFRobot store)
+![正反面svg效果图](./resources/image/TEL0130.png)
+
+## 产品链接(https://www.dfrobot.com/)
   SKU: TEL0130
 
-## Table of Contents
+## 目录
 
-* [Summary](#summary)
-* [Installation](#installation)
-* [Methods](#methods)
-* [Compatibility](#compatibility)
-* [History](#history)
-* [Credits](#credits)
+* [概述](#概述)
+* [库安装](#库安装)
+* [方法](#方法)
+* [兼容性](#兼容性y)
+* [历史](#历史)
+* [创作者](#创作者)
 
-## Summary
+## 概述
 
-该库用于捕获和解析卫星数据，并与物联网平台进行通信。
+这个库分别提供了对卫星数据的获取和解析，包含GPS和北斗卫星数据中的GGA、GLL、GSA、GSV、RMC、VTG解释以及数据解析；同时提供了包括DFRobot
+的EASY—IOT和ALIYUN的基于MQTT协议的物联网通信例程
 
-## Installation
+## 库安装
 
-要使用此库，请下载zip文件并将其解压缩到一个名为 DFRobot_BC20_Gravity。
+使用此库前，请首先下载库文件，将其粘贴到\Arduino\libraries目录中，然后打开examples文件夹并在该文件夹中运行演示。
 
 ## Methods
 
@@ -622,18 +625,19 @@
   
 ```  
 
-## Compatibility  
+## 兼容性
 
-MCU                | Work Well | Work Wrong | Untested  | Remarks
+主板               | 通过  | 未通过   | 未测试   | 备注
 ------------------ | :----------: | :----------: | :---------: | -----
-FireBeetle-ESP32  |      √       |             |            | 
-ATMEGA2560  |      √       |             |            | 
-Arduino uno |       √      |             |            | 
+Arduino uno        |      √       |              |             | 
+Mega2560        |      √       |              |             | 
+Leonardo        |      √       |              |             | 
+ESP32           |      √       |              |             | 
 
-## History
+## 历史
 
-- 2021/12/17 - Version 1.0.0 released. 
+- 2021/12/17 - 1.0.0 版本
 
-## Credits
+## 创作者
 
-Written by Peng Kaixing(kaixing.peng@dfrobot.com), 2020. (Welcome to our website)
+Written by Peng Kaixing(kaixing.peng@dfrobot.com), 2020. (Welcome to our [website](https://www.dfrobot.com/))

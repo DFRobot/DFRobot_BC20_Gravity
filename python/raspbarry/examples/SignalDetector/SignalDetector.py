@@ -6,7 +6,7 @@
   @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
   @license     The MIT License (MIT)
   @author      [PengKaixing](kaixing.peng@dfrobot.com)
-  @version  V1.0
+  @version  V1.0.0
   @date  2019-07-16
   @url https://github.com/DFRobot/DFRobot_BC20_Gravity
 '''
