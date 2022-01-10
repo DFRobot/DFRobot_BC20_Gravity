@@ -1,9 +1,9 @@
 # DFRobot_BC20_Gravity
 - [中文版](./README_CN.md)
 
-Gravity：I2C & UART BC20 NB-IoT & GNSS通信模块是具有NB-IoT低功耗蜂窝通信和GPS/BeiDou双星精确定位功能的物联网通信模块。只要设备所在地区在NB-IoT信号覆盖范围内，无论在室内外均可轻松将开发板或设备采集的各类数据上传至云端，当然也可以通过云端发送指令来远程控制设备，实现云端与真实设备的双向通信与控制，实现“物联”，尤其适用于环境监控站、共享单车、车载定位追踪器等户外物联网应用场景。
+This Gravity: I2C & UART BC20 NB-IoT & GNSS communication module embraces NB-IoT low-power cellular communication and GPS/BeiDou precise positioning function. As long as the device is located in the area covered by  NB-IoT signal, the data collected by the development board or the device can be easily uploaded into the cloud, no matter indoor or outdoor. This module can also be remotely controlled by sending commands through the cloud, realizing "IOT" through communication and control between the cloud and the real device. It is especially applicable to the environmental monitoring station, bike-sharing, vehicle positioning tracker, and other outdoor IoT application scenarios.
 
-此外，模块带有GPS/BeiDou双星精确定位功能，只要将定位天线置于室外即可获取精确的地理坐标和授时信息，实时监控设备的物理位置。用户可通过板载RGB指示灯，清晰了解模块的各类工作状态。为了兼容常见的Arduino、micro:bit、掌控和树莓派等各类3.3V/5V开发板，模块还采用了Gravity I2C & UART复合标准接口，并对这些创客用户常用的开发板在软件上作了全面支持。
+Besides, the equipped GPS/BeiDou positioning function can help obtain precise geographical coordinates and timing information and monitor the device's physical location in real-time by placing the positioning antenna outdoors. Users can visually know the module operating status through the onboard RGB indicator. To work well with general Arduino, micro:bit, control board, Raspberry Pi, and other types of 3.3V/5V development boards, this module employs Gravity I2C & UART standard interface and supports all kinds of development boards that users generally used.
 
 ![正反面svg效果图](./resources/images/TEL0130.png)
 
@@ -22,8 +22,7 @@ Gravity：I2C & UART BC20 NB-IoT & GNSS通信模块是具有NB-IoT低功耗蜂�
 
 ## Summary
 
-这个库分别提供了对卫星数据的获取和解析，包含GPS和北斗卫星数据中的GGA、GLL、GSA、GSV、RMC、VTG解释以及数据解析；同时提供了包括DFRobot
-的EASY—IOT和ALIYUN的基于MQTT协议的物联网通信例程
+This library provides the acquisition and parsing of satellite data, which contains the interpretation and data parsing of GGA, GLL, GSA, GSV, RMC and VTG in GPS & BeiDou satellite data; it also provides DFRobot's EASY-IOT and ALIYUN's IoT communication routines based on MQTT protocol.
 
 ## Installation
 
@@ -34,161 +33,161 @@ To use this library, first download the library file, paste it into the \Arduino
 ```C++
   /**
    * @fn powerOn
-   * @brief 使能NB模组
-   * @return bool类型，表示返回初始化的状态
-   * @retval 1 成功
-   * @retval 0 失败
+   * @brief Enable NB module
+   * @return Bool type, indicate returning init status
+   * @retval 1 Succeeded
+   * @retval 0 Failed
    */
   bool powerOn(void);
 
   /**
    * @fn configKeepalive
    * @brief 配置心跳包超时发送时间
-   * @return bool类型，表示配置心跳时间的状态
-   * @retval 1 成功
-   * @retval 0 失败
+   * @return Bool type, indicate the status of configuring keepalive time
+   * @retval 1 Succeeded
+   * @retval 0 Failed
    */
   bool configKeepalive(char* alivetime);
 
   /**
    * @fn checkBC20
-   * @brief 检测BC20是否存在
-   * @return bool类型，表示BC20存在的状态
-   * @retval 1 存在
-   * @retval 0 不存在
+   * @brief Check whether BC20 exists
+   * @return Bool type, indicate BC20 existing status
+   * @retval 1 Existed
+   * @retval 0 Not exist
    */
   bool checkBC20(void);
 
   /**
    * @fn checkStmStauts
-   * @brief 检测STM32是否存在
-   * @return bool类型，表示STM32存在的状态
-   * @retval 1 存在
-   * @retval 0 不存在
+   * @brief Check whether STM32 exists
+   * @return Bool type, indicate STM32 existing status
+   * @retval 1 Existed
+   * @retval 0 Not exist
    */
   bool checkStmStauts(void);
 
   /**
    * @fn clearGPS
-   * @brief 清空RAM中的存储的卫星信息
+   * @brief Clear the GPS information stored in RAM
    */
   void clearGPS(void);
 
   /**
    * @fn checkNBCard
-   * @brief 检测NB移动卡是否存在
-   * @return bool类型，表示STM32存在的状态
-   * @retval 1 存在
-   * @retval 0 不存在
+   * @brief Check whether NB card exists
+   * @return Bool type, indicate STM32 existing status
+   * @retval 1 Existed
+   * @retval 0 Not exist
    */
   bool checkNBCard(void);
 
   /**
    * @fn getSQ
-   * @brief 获取此时NB网络信号强度
+   * @brief Get the current NB network signal quality
    */
   void getSQ(void);
 
   /**
    * @fn getGSN
-   * @brief 获取国际移动设备识别码信息
+   * @brief Get IMEI information
    */
   void getGSN(uint8_t cmd=0);
 
   /**
    * @fn getGATT
-   * @brief 检测设备是否已经连接上附近的NB基站
-   * @return uint8_t类型，获取模块连接状态
-   * @retval 1 已连接
-   * @retval 0 正在连接
+   * @brief Check whether the device is connected to the nearby NB base station
+   * @return uint8_t type, get the module connection status
+   * @retval 1 Connected
+   * @retval 0 Connecting
    */
   uint8_t getGATT(void);
 
   /**
    * @fn getIMI
-   * @brief 获取国际移动用户识别码
-   * @return uint8_t *类型，识别码数组的指针
+   * @brief Get IMSI
+   * @return uint8_t * type, the pointer to identity array
    */
   uint8_t *getIMI(void);
 
   /**
    * @fn getCLK
-   * @brief 获取此时的网络时间
-   * @return String类型，时间以字符串的形式输出
+   * @brief Get the current network time
+   * @return String type, the time is output as a character string
    */
   String getCLK(void);
 
   /**
    * @fn rest
-   * @brief 模块软复位
-   * @return bool类型，复位操作是否成功
-   * @retval 1 成功
-   * @retval 0 失败
+   * @brief Module soft reset
+   * @return Bool type, indicate whether the reset succeeded
+   * @retval 1 Succeeded
+   * @retval 0 Failed
    */
   bool rest(uint8_t mode = 1);
 
   /**
    * @fn getQCCID
    * @brief get USIM card identification number
-   * @return String类型，USIM card identification number
+   * @return String type, USIM card identification number
    */
   String getQCCID(void);
 
   /*!
    * @fn getQCCID
-   * @brief 设置低功耗模式
+   * @brief Set low-power mode
    * @param mode
    * @n      0 Disable Sleep Mode.
    * @n      1 Enable light sleep and deep sleep, wakeup by PSM_EINT (Falling Edge).
    * @n      2 Enable light sleep only, wakeup by Main UART.
-   * @return bool类型
-   * @retval 1 成功
-   * @retval 0 失败
+   * @return Bool type
+   * @retval 1 Succeeded
+   * @retval 0 Failed
    */
   bool setQSCLK(uint8_t mode);
 
   /*!
    * @fn getQGNSSC
-   * @brief 获取GNSS是否被打开
-   * @return uint8_t类型
-   * @retval 1 已经打开
-   * @retval 0 没有打开
+   * @brief Get GNSS enabling status
+   * @return uint8_t type
+   * @retval 1 Enabled
+   * @retval 0 Disabled
    */
   uint8_t getQGNSSC(void);
 
   /*!
    * @fn setQGNSSC
-   * @brief 设置GNSS是否打开
+   * @brief Set whether to enable GNSS
    * @param mode
-   * @n 	1 打开
-   * @n 	0 关闭
-   * @return bool类型
-   * @retval 1 已经打开
-   * @retval 0 没有打开
+   * @n 	1 Enabled
+   * @n 	0 Disabled
+   * @return Bool type
+   * @retval 1 Enabled
+   * @retval 0 Disabled
    */
   bool setQGNSSC(uint8_t mode);
 
   /*!
    * @fn getQGNSSRD
-   * @brief 获取所有的卫星信息
-   * @return uint8_t类型
-   * @retval 1 获取成功
-   * @retval 0 获取失败
+   * @brief Get all the GNSS information
+   * @return uint8_t type
+   * @retval 1 The getting succeeded
+   * @retval 0 The getting failed
    */
   uint8_t getQGNSSRD(void);
 
   /*!
    * @fn getQGNSSRD2
-   * @brief 获取所有的卫星信息（为了arduino uno等RAM空间比较小的特制）
-   * @return uint8_t类型
-   * @retval 1 获取成功
-   * @retval 0 获取失败
+   * @brief Get all the GNSS information (designed for boards with smaller RAM like Arduino and UNO)
+   * @return uint8_t type
+   * @retval 1 The getting succeeded
+   * @retval 0 The getting failed
    */
   uint8_t getQGNSSRD2(void);
 
   /*!
    * @fn getQGNSSRD
-   * @brief 获取某一种的卫星信息
+   * @brief Get the GNSS information of one type
    * @param sth
    * @n		 NMEA_GGA
    * @n		 NMEA_GLL
@@ -196,125 +195,125 @@ To use this library, first download the library file, paste it into the \Arduino
    * @n		 NMEA_GSV
    * @n		 NMEA_RMC
    * @n		 NMEA_VTG
-   * @return bool类型
-   * @retval 1 获取成功
-   * @retval 0 获取失败
+   * @return Bool type
+   * @retval 1 The getting succeeded
+   * @retval 0 The getting failed
    */
   bool getQGNSSRD(char* sth);
 
   /**
    * @fn setAliyunserver
-   * @brief 设置阿里云连接的相关信息
+   * @brief Set information about Aliyun connection
    * @param ProductKey
    * @param IPAddress
    * @param port
    * @param connectID
-   * @return bool类型
-   * @retval 1 设置成功
-   * @retval 0 设置失败
+   * @return Bool type
+   * @retval 1 The setting succeeded
+   * @retval 0 The setting failed
    */
   bool setAliyunserver(char*ProductKey,char* IPAddress,char* port,char connectID = '0');
 
   /**
    * @fn connect_Aliyun
-   * @brief 连接阿里云
+   * @brief Connect to Aliyun
    * @param ProductKey
    * @param DeviceName
    * @param DeviceSecret
-   * @return bool类型
-   * @retval 1 连接成功
-   * @retval 0 连接失败
+   * @return Bool type
+   * @retval 1 The connecting succeeded
+   * @retval 0 The connecting failed
    */
   bool connect_Aliyun(char* ProductKey,char* DeviceName,char* DeviceSecret);
 
   /**
    * @fn openMQTT
-   * @brief 打开MQTT连接通道
+   * @brief Open MQTT connecting channel
    * @param connectID
    * @param Server
    * @param Port
-   * @return bool类型
-   * @retval 1 打开成功
-   * @retval 0 打开失败
+   * @return Bool type
+   * @retval 1 Opening succeeded
+   * @retval 0 Opening failed
    */
   bool openMQTT(char connectID, char* Server, char* Port);
 
   /**
    * @fn closeMQTT
-   * @brief 关闭MQTT连接通道
+   * @brief Close MQTT connecting channel
    * @param connectID
-   * @return bool类型
-   * @retval 1 关闭成功
-   * @retval 0 关闭失败
+   * @return Bool type
+   * @retval 1 Closing succeeded
+   * @retval 0 Closing failed
    */
   bool closeMQTT(uint8_t connectID);
 
   /**
    * @fn setServer
-   * @brief 设置MQTT服务器信息
+   * @brief Set MQTT server information
    * @param IPAddress
    * @param port
    * @param connectID
-   * @return bool类型
-   * @retval 1 设置成功
-   * @retval 0 设置失败
+   * @return Bool type
+   * @retval 1 The setting succeeded
+   * @retval 0 The setting failed
    */
   bool setServer(char* IPAddress,char* port,char connectID = '0');
 
   /**
    * @fn connected
-   * @brief 设备是否已经连接服务器
-   * @return bool类型
-   * @retval 1 已经连接
-   * @retval 0 未连接
+   * @brief Whether the device is connected to the server
+   * @return Bool type
+   * @retval 1 Connected
+   * @retval 0 Not connected
    */
   bool connected(void);
 
   /**
    * @fn connectServer
-   * @brief 连接服务器
+   * @brief Connect to server
    * @param connectID
    * @param clientID
    * @param UserName
    * @param PassWord
-   * @return bool类型
-   * @retval 1 连接成功
-   * @retval 0 连接失败
+   * @return Bool type
+   * @retval 1 The connecting succeeded
+   * @retval 0 The connecting failed
    */
   bool connectServer(char connectID, char* clientID, char* UserName, char* PassWord);
 
   /**
    * @fn connect
-   * @brief 开始尝试连接MQTT
+   * @brief Try to connect to MQTT
    * @param clientID
    * @param username
    * @param password
    * @param connectID
-   * @return bool类型
-   * @retval 1 连接成功
-   * @retval 0 连接失败
+   * @return Bool type
+   * @retval 1 The connecting succeeded
+   * @retval 0 The connecting failed
    */
   bool connect(char * clientID, char * username,char * password,char connectID ='0');
 
   /**
    * @fn getQMTCONN
    * @brief Used to detect the connection between the device and the server
-   * @return bool类型
-   * @retval 1 获取成功
-   * @retval 0 获取失败
+   * @return Bool type
+   * @retval 1 The getting succeeded
+   * @retval 0 The getting failed
    */
   bool getQMTCONN(void);
 
   /**
    * @fn subTopic
-   * @brief 订阅MQTT信息
+   * @brief Subscribe MQTT information
    * @param connectID
    * @param msgID
    * @param topic
    * @param qos
-   * @return bool类型
-   * @retval 1 订阅成功
-   * @retval 0 订阅失败
+   * @return Bool type
+   * @retval 1 The subscription succeeded
+   * @retval 0 The subscription failed
    */
   bool subTopic(char connectID, char msgID, char* topic, char qos);
 
