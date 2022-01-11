@@ -42,7 +42,7 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn configKeepalive
-   * @brief 配置心跳包超时发送时间
+   * @brief Configure keepalive packet sending time after timeout
    * @return Bool type, indicate the status of configuring keepalive time
    * @retval 1 Succeeded
    * @retval 0 Failed
@@ -319,137 +319,137 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn publish
-   * @brief 发布MQTT信息
+   * @brief Publish MQTT message
    * @param topic
    * @param msg
-   * @return bool类型
-   * @retval 1 发布成功
-   * @retval 0 发布失败
+   * @return Bool type
+   * @retval 1 The publishing succeeded
+   * @retval 0 The publishing failed
    */
   bool publish(char* topic,char* msg);
 
   /**
    * @fn pubMessage
-   * @brief 发布MQTT信息
+   * @brief Publish MQTT message
    * @param connectID
    * @param msgID
    * @param qos
    * @param retain
    * @param topic
    * @param msg
-   * @return bool类型
-   * @retval 1 发布成功
-   * @retval 0 发布失败
+   * @return Bool type
+   * @retval 1 The publishing succeeded
+   * @retval 0 The publishing failed
    */
   bool pubMessage(char connectID,char msgID, char qos, char retain, char* topic, char* msg);
 
   /**
    * @fn setCallback
-   * @brief 设置订阅模式下MQTT信息的回调函数
+   * @brief Set call back function of MQTT message in subscription mode
    */
   void setCallback(void (*call)(char*, uint8_t*, unsigned int));
 
   /**
    * @fn loop
-   * @brief 订阅模式下循环接收数据
+   * @brief Receive data on a loop in subscription mode
    */
   void loop(void);
 
   /**
    * @fn configSleepMode
-   * @brief 配置BC20模块进入睡眠模式
+   * @brief Configure sleep mode for BC20 module
    * @param mode
    * @n     eSleepMode_Disable,
    * @n     eSleepMode_DeepSleep,
    * @n     eSleepMode_Light
-   * @return bool类型
-   * @retval 1 发布成功
-   * @retval 0 发布失败
+   * @return Bool type
+   * @retval 1 The config succeeded
+   * @retval 0 The config failed
    */
   bool configSleepMode(eSleepMode_t mode);
 
   /**
    * @fn BC20Wakeup
-   * @brief 唤醒BC20模块
-   * @return bool类型
-   * @retval 1 唤醒成功
-   * @retval 0 唤醒失败
+   * @brief Wake up BC20 module
+   * @return Bool type
+   * @retval 1 The waking up succeeded
+   * @retval 0 The waking up failed
    */
   bool BC20Wakeup(void);
 
   /**
    * @fn setPSMMode
-   * @brief 设置BC20进入PSM模式
+   * @brief Set BC20 to enter PSM mode
    * @param mode
    * @n     ePSM_OFF
    * @n     ePSM_ON
    * @n     ePSM_OFF_ResetParam
-   * @return bool类型
-   * @retval 1 唤醒成功
-   * @retval 0 唤醒失败
+   * @return Bool type
+   * @retval 1 The setting succeeded
+   * @retval 0 The setting failed
    */
   bool setPSMMode(ePSM_t status);
 
   /**
    * @fn getNum
-   * @brief 获取字符串中的数据段
-   * @param str 等待分析的字符串
+   * @brief Get the data segment in a character string
+   * @param str The character string to be analyzed
    * @n     ePSM_OFF
    * @n     ePSM_ON
    * @n     ePSM_OFF_ResetParam
-   * @return uint8_t类型
+   * @return uint8_t type
    */
   uint8_t getNum(char* str);
 
   /**
    * @fn removeSthString
-   * @brief 从一串字符中移除某一部分字符串
-   * @param sth 等待分析的字符串
-   * @param str 作为保留的字符串
-   * @return char*类型 剩余的字符串
+   * @brief From a string of characters remove part of them
+   * @param sth The character string to be analyzed
+   * @param str Reserved character string
+   * @return char* type, remaining character string
    */
   char*removeSthString(char* sth, char* str);
 
   /**
    * @fn removeSthString
-   * @brief 从一串字符中移除某一部分字符串
-   * @param sth 等待分析的字符串
-   * @param str 作为移除的字符串
-   * @return String类型 剩余的字符串
+   * @brief From a string of characters remove part of them
+   * @param sth The character string to be analyzed
+   * @param str Removed character string
+   * @return String type, remaining character string
    */
   String removeSthString(String sth, String str);
 
   /**
    * @fn GetSthfrontString
-   * @brief 从一串字符中获取某一部分字符串
-   * @param sth 等待分析的字符串
-   * @param str 作为保留的字符串
-   * @return char*类型 保留的字符串
+   * @brief From a string of characters get part of them
+   * @param sth The character string to be analyzed
+   * @param str Reserved character string
+   * @return char* type, reserved character string
    */
   char* GetSthfrontString(char* sth, char* str);
 
   /**
    * @fn GetSthfrontString
-   * @brief 从一串字符中获取某一部分字符串
-   * @param sth 等待分析的字符串
-   * @param str 作为保留的字符串
-   * @return String类型 保留的字符串
+   * @brief From a string of characters get part of them
+   * @param sth The character string to be analyzed
+   * @param str Reserved character string
+   * @return String type, reserved character string
    */
   String GetSthfrontString(String sth, String str);
 
   /**
    * @fn CheckRecData
-   * @brief 检查从NB模组中获取的数据中是否有这个字符串
-   * @param str 等待分析的字符串
-   * @return bool类型
-   * @retval 1 唤醒成功
-   * @retval 0 唤醒失败
+   * @brief Check whether the character string is present in the data obtained from NB module
+   * @param str The character string to be analyzed
+   * @return Bool type
+   * @retval 1 The waking up succeeded
+   * @retval 0 The waking up failed
    */
   bool CheckRecData(char* str);
 
   /**
    * @fn flushBC20Serial
-   * @brief 清空串口收到的所有数据
+   * @brief Clear all the data that the serial port received
    */
   void flushBC20Serial(void);
 
@@ -462,7 +462,7 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn getRecDataforNum
-   * @brief 获取指定字符串中哪一个的数据
+   * @brief Get data from one of the specified character string
    * @param num
    * @param buf
    */
@@ -470,7 +470,7 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn getRecDataforNum
-   * @brief 获取指定字符串中哪一个的数据,并且不检查数据是否规范
+   * @brief Get data from one of the specified character string, and check whether the data is standardized
    * @param num
    * @param buf
    */
@@ -479,39 +479,39 @@ To use this library, first download the library file, paste it into the \Arduino
   /**
    * @fn getIntforString
    * @brief Send the command and get the number specified in the returned command
-   * @param CMD 用来设置在哪个命令后的数字
-   * @param basic 等待分析的数据
-   * @param n 获取几个数据
-   * @return uint8_t类型
+   * @param CMD Set the number for commands
+   * @param basic The data to be analyzed
+   * @param n Get several data
+   * @return uint8_t type
    */
   uint8_t getIntforString(String CMD,String basic,uint8_t n);
 
   /**
    * @fn getSatelliteInformation
    * @brief Given a satellite data, which satellite does it start with, how many satellites do you have
-   * @param start 开始的字符
-   * @param num 获取几颗卫星的数据
-   * @param str 给定的卫星数据字符串
-   * @param sys 等待写入flash的数据
-   * @return uint8_t类型
+   * @param start Starting character
+   * @param num Get data of the satellites
+   * @param str The given satellite data character string
+   * @param sys Flash data to be written
+   * @return uint8_t type
    */
   void getSatelliteInformation(uint8_t start, uint8_t num, char* str, char* sys);
 
   /**
    * @fn LED_ON
-   * @brief 打开模组的LED灯
+   * @brief Turn on LED of the module
    */
   void LED_ON(void);
 
   /**
    * @fn LED_OFF
-   * @brief 关闭模组的LED灯
+   * @brief Turn off LED of the module
    */
   void LED_OFF(void);
 
   /**
    * @fn changeColor
-   * @brief 改变模组的LED灯的颜色
+   * @brief Change the LED color of the module
    * @param newColor
    * @n     RED
    * @n     BLUE
@@ -525,61 +525,61 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn controlLED
-   * @brief 控制LED灯的所有操作
-   * @param chr 控制命令
+   * @brief Control LED totally
+   * @param chr Control command
    */
   void controlLED(char * chr);
 
   /**
    * @fn controlLED
-   * @brief 控制LED灯的所有操作
-   * @param chr 控制命令
+   * @brief Control LED totally
+   * @param chr Control command
    */
   void controlLED(String str);
 
   /**
    * @fn stmLowpower
-   * @brief 控制STM32进入低功耗模式
-   * @return bool类型
-   * @retval 1 唤醒成功
-   * @retval 0 唤醒失败
+   * @brief Control STM32 to enter low-power mode
+   * @return Bool type
+   * @retval 1 The waking up succeeded
+   * @retval 0 The waking up failed
    */
   bool stmLowpower(void);
 
   /**
    * @fn stmWakeup
-   * @brief 控制STM32唤醒
-   * @param Awake_Pin 控制触发唤醒STM32的引脚
-   * @return bool类型
-   * @retval 1 唤醒成功
-   * @retval 0 唤醒失败
+   * @brief Control STM32 waking up
+   * @param Awake_Pin Control the pin triggering STM32 waking up
+   * @return Bool type
+   * @retval 1 The waking up succeeded
+   * @retval 0 The waking up failed
    */
   bool stmWakeup(uint8_t Awake_Pin);
 
   /**
    * @fn sendATCMD
-   * @brief 主控向模组发送数据，由子类来具体实现
+   * @brief The MCU send data to the module, implemented by subclass
    * @param str 
    */
   virtual void sendATCMD(char* str) =0;
 
   /**
    * @fn sendATCMD
-   * @brief 主控向模组发送数据，由子类来具体实现
+   * @brief The MCU send data to the module, implemented by subclass
    * @param str
    */
   virtual void sendATCMD(String str) =0;
 
   /**
    * @fn sendATCMD
-   * @brief 主控向模组发送数据，由子类来具体实现
+   * @brief The MCU send data to the module, implemented by subclass
    * @param num
    */
   virtual void sendATCMD(uint8_t num) =0;
 
   /**
    * @fn sendATCMD
-   * @brief 主控向模组发送数据，由子类来具体实现
+   * @brief The MCU send data to the module, implemented by subclass
    * @param str
    * @param num
    */
@@ -587,7 +587,7 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn sendATCMD
-   * @brief 主控向模组发送数据，由子类来具体实现
+   * @brief The MCU send data to the module, implemented by subclass
    * @param str
    * @param cmd
    */
@@ -595,31 +595,31 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn readData
-   * @brief 从模组获取数据
-   * @return String类型
+   * @brief Get data from the module
+   * @return String type
    */
   virtual String readData(void) =0;
 
   /**
    * @fn readData
-   * @brief 从模组获取数据
-   * @param timeout 持续时间内一直读取
+   * @brief Get data from the module
+   * @param timeout Read repeatedly for the duration
    */
   virtual void receviceATCMD(uint32_t timeout) =0;
 
   /**
    * @fn sendATCMDBychar
-   * @brief 使用字符的方式给模组发送数据
+   * @brief Send data as a character to the module
    * @param str 
    */
   virtual void sendATCMDBychar(char str) =0;
 
   /**
    * @fn available
-   * @brief 判断模组是否有数据返回
-   * @return bool类型
-   * @retval 1 有数据返回
-   * @retval 0 没有数据返回
+   * @brief Check whether data returned from module is available
+   * @return Bool type
+   * @retval 1 Available
+   * @retval 0 Not available
    */
   virtual bool available(void)=0;
   
@@ -627,7 +627,7 @@ To use this library, first download the library file, paste it into the \Arduino
 
 ## Compatibility
 
-主板               | 通过  | 未通过   | 未测试   | 备注
+MCU               | Work Well  | Work Wrong   | Untested   | Remarks
 ------------------ | :----------: | :----------: | :---------: | -----
 Arduino uno        |      √       |              |             | 
 Mega2560        |      √       |              |             | 
@@ -636,7 +636,7 @@ ESP32           |      √       |              |             |
 
 ## History
 
-- 2021/12/17 - 1.0.0 版本
+- 2021/12/17 - 1.0.0 version
 
 ## Credits
 
