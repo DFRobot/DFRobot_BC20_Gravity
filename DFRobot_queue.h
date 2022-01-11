@@ -1,6 +1,6 @@
 /*!
  * @file DFRobot_queue.h
- * @brief 这是一个处理链表数据的头文件
+ * @brief This is a header for handling linked list data.
  * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
  * @license     The MIT License (MIT)
  * @author      [PengKaixing](kaixing.peng@dfrobot.com)
