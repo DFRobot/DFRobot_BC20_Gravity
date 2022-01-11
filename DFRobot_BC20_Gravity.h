@@ -1,6 +1,6 @@
 /*!
  * @file DFRobot_BC20_Gravity.h
- * @brief 这是一个基于MQTT的物联网和卫星信息的综合模块
+ * @brief This is an integrated MQTT-based module for IoT and satellite information.
  * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
  * @license     The MIT License (MIT)
  * @author      [PengKaixing](kaixing.peng@dfrobot.com)
@@ -30,7 +30,7 @@
 extern char *ret;
 /**
  * @struct sSIMCard_t
- * @brief SIM卡IMEI信息
+ * @brief IMEI information of SIM card
  */
 typedef struct
 {
@@ -40,7 +40,7 @@ extern sSIMCard_t sSIMCard;
 
 /**
  * @struct sRecData_t
- * @brief 模块返回数据
+ * @brief Module return data
  */
 typedef struct
 {
@@ -50,7 +50,7 @@ extern sRecData_t sRecData;
 
 /**
  * @struct sSQ_t
- * @brief MQTT信号强度
+ * @brief MQTT signal quality
  */
 typedef struct
 {
@@ -61,7 +61,7 @@ extern sSQ_t sSQ;
 
 /**
  * @struct sGSN_t
- * @brief 国际移动设备信息
+ * @brief IMEI
  */
 typedef struct
 {
@@ -74,7 +74,7 @@ extern sGSN_t sGSN;
 
 /**
  * @struct sGLL_t
- * @brief MQTT信息
+ * @brief MQTT information
  */
 typedef struct
 {
@@ -208,7 +208,7 @@ extern sGLL_t sGLL;
 
 /**
  * @struct sGGA_t
- * @brief GPS信息
+ * @brief GPS information
  */
 typedef struct
 {
@@ -574,7 +574,7 @@ struct sGSAD
 
 /**
  * @struct sGSA_t
- * @brief GSA信息
+ * @brief GSA information
  */
 typedef struct
 {
@@ -585,7 +585,7 @@ extern sGSA_t sGSA;
 
 /**
  * @struct sRMC_t
- * @brief RMC信息
+ * @brief RMC information
  */
 typedef struct
 {
@@ -827,7 +827,7 @@ extern sRMC_t sRMC;
 
 /**
  * @struct sVTG_t
- * @brief VTG信息
+ * @brief VTG information
  */
 typedef struct
 {
@@ -1037,7 +1037,7 @@ struct sGSV
 
 /**
  * @struct sSAT_t
- * @brief sSAT信息
+ * @brief sSAT information
  */
 typedef struct
 {
@@ -1049,7 +1049,7 @@ extern sSAT_t sSAT;
 
 /**
  * @struct sCLK_t
- * @brief CLK信息
+ * @brief CLK information
  */
 typedef struct
 {
@@ -1066,7 +1066,7 @@ extern sCLK_t sCLK;
 
 /**
  * @struct sGGNS_t2
- * @brief GNS信息
+ * @brief GNS information
  */
 typedef struct
 {
@@ -1112,7 +1112,7 @@ struct sGSV2
 
 /**
  * @struct sSAT_t2
- * @brief SAT信息
+ * @brief SAT information
  */
 typedef struct
 {
@@ -1124,7 +1124,7 @@ extern sSAT_t2 sSAT2;
 
 /**
  * @struct sGGNS_t
- * @brief GNS信息
+ * @brief GNS information
  */
 typedef struct
 {
@@ -1147,7 +1147,7 @@ extern sGGNS_t sGGNS;
 
 /**
  * @enum eTAUunit_t
- * @brief 时间信息
+ * @brief Time information
  */
 typedef enum 
 {
@@ -1163,7 +1163,7 @@ typedef enum
 
 /**
  * @enum eAcTunit_t
- * @brief 间隔时间信息
+ * @brief Interval time information
  */
 typedef enum 
 {
@@ -1175,7 +1175,7 @@ typedef enum
 
 /**
  * @enum eeDRXValue_t
- * @brief 间隔时间信息
+ * @brief Interval time information
  */
 typedef enum 
 {
@@ -1193,7 +1193,7 @@ typedef enum
 
 /**
  * @enum eeDRXValue_t
- * @brief GPS间隔时间信息
+ * @brief GPS interval time information
  */
 typedef enum
 {
@@ -1211,7 +1211,7 @@ typedef enum
 
 /**
  * @enum ePTWValue_t
- * @brief GPS间隔时间信息
+ * @brief GPS interval time information
  */
 typedef enum 
 {
@@ -1235,7 +1235,7 @@ typedef enum
 
 /**
  * @enum ePSM_t
- * @brief BC20模块的低功耗
+ * @brief Low power consumption of BC20 module
  */
 typedef enum 
 {
@@ -1246,7 +1246,7 @@ typedef enum
 
 /**
  * @enum eSleepMode_t
- * @brief BC20模块的睡眠模式
+ * @brief Sleep mode of BC20 module
  */
 typedef enum 
 {
@@ -1264,159 +1264,159 @@ public:
   DFRobot_BC20(void);
   /**
    * @fn powerOn
-   * @brief 使能NB模组
-   * @return bool类型，表示返回初始化的状态
-   * @retval 1 成功
-   * @retval 0 失败
+   * @brief Enable NB module
+   * @return Bool type, indicate returning init status
+   * @retval 1 Succeeded
+   * @retval 0 Failed
    */
   bool powerOn(void);
 
   /**
    * @fn configKeepalive
-   * @brief 配置心跳包超时发送时间
-   * @return bool类型，表示配置心跳时间的状态
-   * @retval 1 成功
-   * @retval 0 失败
+   * @brief Configure keepalive packet sending time after timeout
+   * @return Bool type, indicate the status of configuring keepalive time
+   * @retval 1 Succeeded
+   * @retval 0 Failed
    */
   bool configKeepalive(char* alivetime);
 
   /**
    * @fn checkBC20
-   * @brief 检测BC20是否存在
-   * @return bool类型，表示BC20存在的状态
-   * @retval 1 存在
-   * @retval 0 不存在
+   * @brief Check whether BC20 exists
+   * @return Bool type, indicate BC20 existing status
+   * @retval 1 Existed
+   * @retval 0 Not exist
    */
   bool checkBC20(void);
 
   /**
    * @fn checkStmStauts
-   * @brief 检测STM32是否存在
-   * @return bool类型，表示STM32存在的状态
-   * @retval 1 存在
-   * @retval 0 不存在
+   * @brief Check whether STM32 exists
+   * @return Bool type, indicate STM32 existing status
+   * @retval 1 Existed
+   * @retval 0 Not exist
    */
   bool checkStmStauts(void);
 
   /**
    * @fn clearGPS
-   * @brief 清空RAM中的存储的卫星信息
+   * @brief Clear the GPS information stored in RAM
    */
   void clearGPS(void);
 
   /**
    * @fn checkNBCard
-   * @brief 检测NB移动卡是否存在
-   * @return bool类型，表示STM32存在的状态
-   * @retval 1 存在
-   * @retval 0 不存在
+   * @brief Check whether NB card exists
+   * @return Bool type, indicate STM32 existing status
+   * @retval 1 Existed
+   * @retval 0 Not exist
    */
   bool checkNBCard(void);
 
   /**
    * @fn getSQ
-   * @brief 获取此时NB网络信号强度
+   * @brief Get the current NB network signal quality
    */
   void getSQ(void);
 
   /**
    * @fn getGSN
-   * @brief 获取国际移动设备识别码信息
+   * @brief Get IMEI information
    */
   void getGSN(uint8_t cmd=0);
 
   /**
    * @fn getGATT
-   * @brief 检测设备是否已经连接上附近的NB基站
-   * @return uint8_t类型，获取模块连接状态
-   * @retval 1 已连接
-   * @retval 0 正在连接
+   * @brief Check whether the device is connected to the nearby NB base station
+   * @return uint8_t type, get the module connection status
+   * @retval 1 Connected
+   * @retval 0 Connecting
    */
   uint8_t getGATT(void);
 
   /**
    * @fn getIMI
-   * @brief 获取国际移动用户识别码
-   * @return uint8_t *类型，识别码数组的指针
+   * @brief Get IMSI
+   * @return uint8_t *type, the pointer to identity array
    */
   uint8_t *getIMI(void);
 
   /**
    * @fn getCLK
-   * @brief 获取此时的网络时间
-   * @return String类型，时间以字符串的形式输出
+   * @brief Get the current network time
+   * @return String type, the time is output as a character string
    */
   String getCLK(void);
 
   /**
    * @fn rest(uint8_t mode = 1)
-   * @brief 模块软复位
-   * @return bool类型，复位操作是否成功
-   * @retval 1 成功
-   * @retval 0 失败
+   * @brief Module soft reset
+   * @return Bool type, indicate whether the reset succeeded
+   * @retval 1 Succeeded
+   * @retval 0 Failed
    */
   bool rest(uint8_t mode = 1);
 
   /**
    * @fn getQCCID
    * @brief get USIM card identification number
-   * @return String类型
+   * @return String type
    */
   String getQCCID(void);
 
   /*!
    * @fn setQSCLK
-   * @brief 设置低功耗模式
+   * @brief Set low-power mode
    * @param mode
    * @n      0 Disable Sleep Mode.
    * @n      1 Enable light sleep and deep sleep, wakeup by PSM_EINT (Falling Edge).
    * @n      2 Enable light sleep only, wakeup by Main UART.
-   * @return bool类型
-   * @retval 1 成功
-   * @retval 0 失败
+   * @return Bool type
+   * @retval 1 Succeeded
+   * @retval 0 Failed
    */
   bool setQSCLK(uint8_t mode);
 
   /*!
    * @fn getQGNSSC
-   * @brief 获取GNSS是否被打开
-   * @return uint8_t类型
-   * @retval 1 已经打开
-   * @retval 0 没有打开
+   * @brief Get GNSS enabling status
+   * @return uint8_t type
+   * @retval 1 Enabled
+   * @retval 0 Disabled
    */
   uint8_t getQGNSSC(void);
 
   /*!
    * @fn setQGNSSC
-   * @brief 设置GNSS是否打开
+   * @brief Set whether to enable GNSS
    * @param mode
-   * @n 	1 打开
-   * @n 	0 关闭
-   * @return bool类型
-   * @retval 1 已经打开
-   * @retval 0 没有打开
+   * @n 	1 Enabled
+   * @n 	0 Disabled
+   * @return Bool type
+   * @retval 1 Enabled
+   * @retval 0 Disabled
    */
   bool setQGNSSC(uint8_t mode);
 
   /*!
    * @fn getQGNSSRD
-   * @brief 获取所有的卫星信息
-   * @return uint8_t类型
-   * @retval 1 获取成功
-   * @retval 0 获取失败
+   * @brief Get all the GNSS information
+   * @return uint8_t type
+   * @retval 1 The getting succeeded
+   * @retval 0 The getting failed
    */
   uint8_t getQGNSSRD(void);
 
   /*!
    * @fn getQGNSSRD2
-   * @brief 获取所有的卫星信息（为了arduino uno等RAM空间比较小的特制）
-   * @return uint8_t类型
+   * @brief Get all the GNSS information (designed for boards with smaller RAM like Arduino and UNO)
+   * @return uint8_t type
    */
   uint8_t getQGNSSRD2(void);
 
   /*!
    * @fn getQGNSSRD(char* sth)
-   * @brief 获取某一种的卫星信息
+   * @brief Get information of one type of satellite
    * @param sth
    * @n		 NMEA_GGA
    * @n		 NMEA_GLL
@@ -1424,261 +1424,261 @@ public:
    * @n		 NMEA_GSV
    * @n		 NMEA_RMC
    * @n		 NMEA_VTG
-   * @return bool类型
-   * @retval 1 获取成功
-   * @retval 0 获取失败
+   * @return Bool type
+   * @retval 1 The getting succeeded
+   * @retval 0 The getting failed
    */
   bool getQGNSSRD(char* sth);
 
   /**
    * @fn setAliyunserver
-   * @brief 设置阿里云连接的相关信息
+   * @brief Set information about Aliyun connection
    * @param ProductKey
    * @param IPAddress
    * @param port
    * @param connectID
-   * @return bool类型
-   * @retval 1 设置成功
-   * @retval 0 设置失败
+   * @return Bool type
+   * @retval 1 The setting succeeded
+   * @retval 0 The setting failed
    */
   bool setAliyunserver(char*ProductKey,char* IPAddress,char* port,char connectID = '0');
 
   /**
    * @fn connect_Aliyun
-   * @brief 连接阿里云
+   * @brief Connect to Aliyun
    * @param ProductKey
    * @param DeviceName
    * @param DeviceSecret
-   * @return bool类型
-   * @retval 1 连接成功
-   * @retval 0 连接失败 
+   * @return Bool type
+   * @retval 1 The connecting succeeded
+   * @retval 0 The connecting failed 
    */
   bool connect_Aliyun(char* ProductKey,char* DeviceName,char* DeviceSecret);
 
   /**
    * @fn openMQTT
-   * @brief 打开MQTT连接通道
+   * @brief Open MQTT connecting channel
    * @param connectID
    * @param Server
    * @param Port
-   * @return bool类型
-   * @retval 1 打开成功
-   * @retval 0 打开失败
+   * @return Bool type
+   * @retval 1 Opening succeeded
+   * @retval 0 Opening failed
    */
   bool openMQTT(char connectID, char* Server, char* Port);
 
   /**
    * @fn closeMQTT
-   * @brief 关闭MQTT连接通道
+   * @brief Close MQTT connecting channel
    * @param connectID
-   * @return bool类型
-   * @retval 1 关闭成功
-   * @retval 0 关闭失败
+   * @return Bool type
+   * @retval 1 Closing succeeded
+   * @retval 0 Closing failed
    */
   bool closeMQTT(uint8_t connectID);
 
   /**
    * @fn setServer
-   * @brief 设置MQTT服务器信息
+   * @brief Set MQTT server information
    * @param IPAddress
    * @param port
    * @param connectID
-   * @return bool类型
-   * @retval 1 设置成功
-   * @retval 0 设置失败
+   * @return Bool type
+   * @retval 1 The setting succeeded
+   * @retval 0 The setting failed
    */
   bool setServer(char* IPAddress,char* port,char connectID = '0');
 
   /**
    * @fn connected
-   * @brief 设备是否已经连接服务器
-   * @return bool类型
-   * @retval 1 已经连接
-   * @retval 0 未连接
+   * @brief Whether the device is connected to the server
+   * @return Bool type
+   * @retval 1 Connected
+   * @retval 0 Not connected
    */
   bool connected(void);
 
   /**
    * @fn connectServer
-   * @brief 连接服务器
+   * @brief Connect to server
    * @param connectID
    * @param clientID
    * @param UserName
    * @param PassWord
-   * @return bool类型
-   * @retval 1 连接成功
-   * @retval 0 连接失败
+   * @return Bool type
+   * @retval 1 The connecting succeeded
+   * @retval 0 The connecting failed
    */
   bool connectServer(char connectID, char* clientID, char* UserName, char* PassWord);
 
   /**
    * @fn connect
-   * @brief 开始尝试连接MQTT
+   * @brief Try to connect to MQTT
    * @param clientID
    * @param username
    * @param password
    * @param connectID
-   * @return bool类型
-   * @retval 1 连接成功
-   * @retval 0 连接失败
+   * @return Bool type
+   * @retval 1 The connecting succeeded
+   * @retval 0 The connecting failed
    */
   bool connect(char * clientID, char * username,char * password,char connectID ='0');
 
   /**
    * @fn getQMTCONN
    * @brief Used to detect the connection between the device and the server
-   * @return bool类型
-   * @retval 1 获取成功
-   * @retval 0 获取失败
+   * @return Bool type
+   * @retval 1 The getting succeeded
+   * @retval 0 The getting failed
    */
   bool getQMTCONN(void);
 
   /**
    * @fn subTopic
-   * @brief 订阅MQTT信息
+   * @brief Subscribe MQTT information
    * @param connectID
    * @param msgID
    * @param topic
    * @param qos
-   * @return bool类型
-   * @retval 1 订阅成功
-   * @retval 0 订阅失败
+   * @return Bool type
+   * @retval 1 The subscription succeeded
+   * @retval 0 The subscription failed
    */
   bool subTopic(char connectID, char msgID, char* topic, char qos);
 
   /**
    * @fn publish(char* topic,char* msg)
-   * @brief 发布MQTT信息
+   * @brief Publish MQTT message
    * @param topic
    * @param msg
-   * @return bool类型
-   * @retval 1 发布成功
-   * @retval 0 发布失败
+   * @return Bool type
+   * @retval 1 The publishing succeeded
+   * @retval 0 The publishing failed
    */
   bool publish(char* topic,char* msg);
 
   /**
    * @fn pubMessage
-   * @brief 发布MQTT信息
+   * @brief Publish MQTT message
    * @param connectID
    * @param msgID
    * @param qos
    * @param retain
    * @param topic
    * @param msg
-   * @return bool类型
-   * @retval 1 发布成功
-   * @retval 0 发布失败
+   * @return Bool type
+   * @retval 1 The publishing succeeded
+   * @retval 0 The publishing failed
    */
   bool pubMessage(char connectID,char msgID, char qos, char retain, char* topic, char* msg);
 
   /**
    * @fn setCallback
-   * @brief 设置订阅模式下MQTT信息的回调函数
+   * @brief Set call back function of MQTT message in subscription mode
    */
   void setCallback(void (*call)(char*, uint8_t*, unsigned int));
 
   /**
    * @fn loop
-   * @brief 订阅模式下循环接收数据
+   * @brief Receive data on a loop in subscription mode
    */
   void loop(void);
 
   /**
    * @fn configSleepMode
-   * @brief 配置BC20模块进入睡眠模式
+   * @brief Configure sleep mode for BC20 module
    * @param mode
    * @n     eSleepMode_Disable
    * @n     eSleepMode_DeepSleep 
    * @n     eSleepMode_Light
-   * @return bool类型
-   * @retval 1 发布成功
-   * @retval 0 发布失败
+   * @return Bool type
+   * @retval 1 The config succeeded
+   * @retval 0 The config failed
    */
   bool configSleepMode(eSleepMode_t mode);
 
   /**
    * @fn BC20Wakeup
-   * @brief 唤醒BC20模块
-   * @return bool类型
-   * @retval 1 唤醒成功
-   * @retval 0 唤醒失败
+   * @brief Wake up BC20 module
+   * @return Bool type
+   * @retval 1 The waking up succeeded
+   * @retval 0 The waking up failed
    */
   bool BC20Wakeup(void);
 
   /**
    * @fn setPSMMode
-   * @brief 设置BC20进入PSM模式
+   * @brief Set BC20 to enter PSM mode
    * @param status
    * @n     ePSM_OFF
    * @n     ePSM_ON
    * @n     ePSM_OFF_ResetParam
-   * @return bool类型
-   * @retval 1 唤醒成功
-   * @retval 0 唤醒失败
+   * @return Bool type
+   * @retval 1 The waking up succeeded
+   * @retval 0 The waking up failed
    */
   bool setPSMMode(ePSM_t status);
 
   /**
    * @fn getNum
-   * @brief 获取字符串中的数据段
-   * @param str 等待分析的字符串
+   * @brief Get the data segment in a character string
+   * @param str The character string to be analyzed
    * @n     ePSM_OFF
    * @n     ePSM_ON
    * @n     ePSM_OFF_ResetParam
-   * @return uint8_t类型
+   * @return uint8_t type
    */
   uint8_t getNum(char* str);
 
   /**
    * @fn removeSthString(char* sth, char* str)
-   * @brief 从一串字符中移除某一部分字符串
-   * @param sth 等待分析的字符串
-   * @param str 作为保留的字符串
-   * @return char*类型 剩余的字符串
+   * @brief From a string of characters remove part of them
+   * @param sth The character string to be analyzed
+   * @param str Reserved character string
+   * @return char*type, remaining character string
    */
   char*removeSthString(char* sth, char* str);
 
   /**
    * @fn removeSthString(String sth, String str)
-   * @brief 从一串字符中移除某一部分字符串
-   * @param sth 等待分析的字符串
-   * @param str 作为移除的字符串
-   * @return String类型 剩余的字符串
+   * @brief From a string of characters remove part of them
+   * @param sth The character string to be analyzed
+   * @param str Removed character string
+   * @return String type, remaining character string
    */
   String removeSthString(String sth, String str);
 
   /**
    * @fn GetSthfrontString(char* sth, char* str)
-   * @brief 从一串字符中获取某一部分字符串
-   * @param sth 等待分析的字符串
-   * @param str 作为保留的字符串
-   * @return char*类型 保留的字符串
+   * @brief From a string of characters get part of them
+   * @param sth The character string to be analyzed
+   * @param str Reserved character string
+   * @return char*type, reserved character string
    */
   char* GetSthfrontString(char* sth, char* str);
 
   /**
    * @fn GetSthfrontString(String sth, String str)
-   * @brief 从一串字符中获取某一部分字符串
-   * @param sth 等待分析的字符串
-   * @param str 作为保留的字符串
-   * @return String类型 保留的字符串
+   * @brief From a string of characters get part of them
+   * @param sth The character string to be analyzed
+   * @param str Reserved character string
+   * @return String type, reserved character string
    */
   String GetSthfrontString(String sth, String str);
 
   /**
    * @fn CheckRecData
-   * @brief 检查从NB模组中获取的数据中是否有这个字符串
-   * @param str 等待分析的字符串
-   * @return bool类型
-   * @retval 1 唤醒成功
-   * @retval 0 唤醒失败
+   * @brief Check whether the character string is present in the data obtained from NB module
+   * @param str The character string to be analyzed
+   * @return Bool type
+   * @retval 1 The waking up succeeded
+   * @retval 0 The waking up failed
    */
   bool CheckRecData(char* str);
 
   /**
    * @fn flushBC20Serial
-   * @brief 清空串口收到的所有数据
+   * @brief Clear all the data that the serial port received
    */
   void flushBC20Serial(void);
 
@@ -1691,7 +1691,7 @@ public:
 
   /**
    * @fn getRecDataforNum
-   * @brief 获取指定字符串中哪一个的数据
+   * @brief Get data from one of the specified character string
    * @param num
    * @param buf
    */
@@ -1699,7 +1699,7 @@ public:
 
   /**
    * @fn getRecDataforNum
-   * @brief 获取指定字符串中哪一个的数据,并且不检查数据是否规范
+   * @brief Get data from one of the specified character string, and check whether the data is standardized
    * @param num
    * @param buf
    */
@@ -1708,39 +1708,39 @@ public:
   /**
    * @fn getIntforString
    * @brief Send the command and get the number specified in the returned command
-   * @param CMD 用来设置在哪个命令后的数字
-   * @param basic 等待分析的数据
-   * @param n 获取几个数据
-   * @return uint8_t类型
+   * @param CMD Set the number for commands
+   * @param basic The data to be analyzed
+   * @param n Get several data
+   * @return uint8_t type
    */
   uint8_t getIntforString(String CMD,String basic,uint8_t n);
 
   /**
    * @fn getSatelliteInformation
    * @brief Given a satellite data, which satellite does it start with, how many satellites do you have
-   * @param start 开始的字符
-   * @param num 获取几颗卫星的数据
-   * @param str 给定的卫星数据字符串
-   * @param sys 等待写入flash的数据
-   * @return uint8_t类型
+   * @param start Starting character
+   * @param num Get data of the satellites
+   * @param str The given satellite data character string
+   * @param sys Flash data to be written
+   * @return uint8_t type
    */
   void getSatelliteInformation(uint8_t start, uint8_t num, char* str, char* sys);
 
   /**
    * @fn LED_ON
-   * @brief 打开模组的LED灯
+   * @brief Turn on LED of the module
    */
   void LED_ON(void);
 
   /**
    * @fn LED_OFF
-   * @brief 关闭模组的LED灯
+   * @brief Turn off LED of the module
    */
   void LED_OFF(void);
 
   /**
    * @fn changeColor
-   * @brief 改变模组的LED灯的颜色
+   * @brief Change the LED color of the module
    * @param newColor
    * @n     RED
    * @n     BLUE
@@ -1754,61 +1754,61 @@ public:
 
   /**
    * @fn controlLED(char * chr)
-   * @brief 控制LED灯的所有操作
-   * @param chr 控制命令
+   * @brief Control LED totally
+   * @param chr Control command
    */
   void controlLED(char * chr);
 
   /**
    * @fn controlLED(String str)
-   * @brief 控制LED灯的所有操作
-   * @param str 控制命令
+   * @brief Control LED totally
+   * @param str Control command
    */
   void controlLED(String str);
 
   /**
    * @fn stmLowpower
-   * @brief 控制STM32进入低功耗模式
-   * @return bool类型
-   * @retval 1 唤醒成功
-   * @retval 0 唤醒失败
+   * @brief Control STM32 to enter low-power mode
+   * @return Bool type
+   * @retval 1 The waking up succeeded
+   * @retval 0 The waking up failed
    */
   bool stmLowpower(void);
 
   /**
    * @fn stmWakeup
-   * @brief 控制STM32唤醒
-   * @param Awake_Pin 控制触发唤醒STM32的引脚
-   * @return bool类型
-   * @retval 1 唤醒成功
-   * @retval 0 唤醒失败
+   * @brief Control STM32 waking up
+   * @param Awake_Pin Control the pin triggering STM32 waking up
+   * @return Bool type
+   * @retval 1 The waking up succeeded
+   * @retval 0 The waking up failed
    */
   bool stmWakeup(uint8_t Awake_Pin);
 
   /**
    * @fn sendATCMD(char* str)
-   * @brief 主控向模组发送数据，由子类来具体实现
+   * @brief The MCU send data to the module, implemented by subclass
    * @param str
    */
   virtual void sendATCMD(char* str) =0;
 
   /**
    * @fn sendATCMD(String str)
-   * @brief 主控向模组发送数据，由子类来具体实现
+   * @brief The MCU send data to the module, implemented by subclass
    * @param str
    */
   virtual void sendATCMD(String str) =0;
 
   /**
    * @fn sendATCMD(uint8_t num)
-   * @brief 主控向模组发送数据，由子类来具体实现
+   * @brief The MCU send data to the module, implemented by subclass
    * @param num
    */
   virtual void sendATCMD(uint8_t num) =0;
 
   /**
    * @fn sendATCMD(String str,uint8_t num)
-   * @brief 主控向模组发送数据，由子类来具体实现
+   * @brief The MCU send data to the module, implemented by subclass
    * @param str
    * @param num
    */
@@ -1816,7 +1816,7 @@ public:
 
   /**
    * @fn sendATCMD(String str,String cmd)
-   * @brief 主控向模组发送数据，由子类来具体实现
+   * @brief The MCU send data to the module, implemented by subclass
    * @param str
    * @param cmd
    */
@@ -1824,31 +1824,31 @@ public:
 
   /**
    * @fn readData
-   * @brief 从模组获取数据
-   * @return String类型
+   * @brief Get data from the module
+   * @return String type
    */
   virtual String readData(void) =0;
 
   /**
    * @fn receviceATCMD
-   * @brief 从模组获取数据
-   * @param timeout 持续时间内一直读取
+   * @brief Get data from the module
+   * @param timeout Read repeatedly for the duration
    */
   virtual void receviceATCMD(uint32_t timeout) =0;
 
   /**
    * @fn sendATCMDBychar
-   * @brief 使用字符的方式给模组发送数据
+   * @brief Send data as a character to the module
    * @param str 
    */
   virtual void sendATCMDBychar(char str) =0;
 
   /**
    * @fn available
-   * @brief 判断模组是否有数据返回
-   * @return bool类型
-   * @retval 1 有数据返回
-   * @retval 0 没有数据返回
+   * @brief Check whether data returned from module is available
+   * @return Bool type
+   * @retval 1 Available
+   * @retval 0 Not available
    */
   virtual bool available(void)=0;
   char color = 'R';
