@@ -1,6 +1,6 @@
 /*!
  * @file DFRobot_BC20AT.h
- * @brief 这是一个NB模组需要用到的命令字符串
+ * @brief This is a command character string needed for NB module.
  * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
  * @license     The MIT License (MIT)
  * @author      [PengKaixing](kaixing.peng@dfrobot.com)
@@ -15,7 +15,7 @@
 #define     CIMI_INFO                 0
 #define     AT_OK                     (char*)"OK\r\n"
 
-/*Product Identification Information获取产品信息*/
+/*Product Identification Information get product information*/
 #define     GET_PII                   (char*)"ATI"
 
 #define     SET_ECHO_0                (char*)"ATE0"
@@ -30,31 +30,31 @@
 #define     CHECK_NB_CARD             (char*)"CIMI"
 #define     CHECK_IMEI_NUM            (char*)"CGSN=1"
 
-/*Manufacturer Identification获取厂商信息*/
+/*Manufacturer Identification get manufacturer information*/
 #define     TEST_MI                   (char*)"CGMI=?"
 #define     GET_MI                    (char*)"CGMI"
 
-/*Model Identification获取模组信息*/
+/*Model Identification get module information*/
 #define     TEST_MM                   (char*)"CGMM=?"
 #define     GET_MM                    (char*)"CGMM"
 
-/*Manufacturer Identification获取厂商版本*/
+/*Manufacturer Identification get manufacturer version*/
 #define     TEST_MR                   (char*)"CGMR=?"
 #define     GET_MR                    (char*)"CGMR"
 
-/*Signal Quality获取信号强度和信道误码率*/
+/*Signal Quality get signal quality and channel SER*/
 #define     TEST_SQ                   (char*)"CSQ=?"
 #define     GET_SQ                    (char*)"CSQ"
 
-/*Extended Signal Quality获取扩展信号质量*/
+/*Extended Signal Quality*/
 #define     TEST_ESQ                  (char*)"CESQ=?"
 #define     GET_ESQ                   (char*)"CESQ"
 
-/*Product Serial Number获取产品序列号*/
+/*Product Serial Number*/
 #define     TEST_GSN                  (char*)"CGSN=?"
 #define     GET_GSN                   (char*)"CGSN"
 
-/*EPS Network Registration Status EPS网络注册状态*/
+/*EPS Network Registration Status*/
 #define     TEST_EREG                 (char*)"CEREG=?"
 #define     GET_EREG                  (char*)"CEREG?"
 #define     SET_EREG                  (char*)"CEREG"
@@ -214,12 +214,12 @@
 #define     TEST_QFOTADL              (char*)"QFOTADL=?"
 #define     SET_QFOTADL               (char*)"QFOTADL"
 
-/*GNSS 模块电源控制*/
+/*GNSS module power control*/
 #define     TEST_QGNSSC               (char*)"QGNSSC=?"
 #define     GET_QGNSSC                (char*)"QGNSSC?"
 #define     SET_QGNSSC                (char*)"QGNSSC"
 
-/*获取 GNSS 信息*/
+/*Get GNSS information*/
 #define     TEST_QGNSSRD              (char*)"QGNSSRD=?"
 #define     GET_QGNSSRD               (char*)"QGNSSRD?"
 #define     SET_QGNSSRD               (char*)"QGNSSRD"
