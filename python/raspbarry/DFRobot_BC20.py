@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*
 '''!
   @file DFRobot_BC20.py
-  @brief 这是一个基于MQTT的物联网和卫星信息的综合模块
+  @brief This is an integrated MQTT-based module for IoT and satellite information.
   @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
   @license     The MIT License (MIT)
   @author      [PengKaixing](kaixing.peng@dfrobot.com)
@@ -133,7 +133,7 @@ class sGGNS_t(ctypes.Structure):
 
 class DFRobot_BC20(object):
   '''!
-    @brief 这是一个基于MQTT的物联网和卫星信息的综合模块类
+    @brief This is an integrated MQTT-based module class for IoT and satellite information.
   '''
   def __init__(self): 
     #e_Mode 
@@ -187,7 +187,7 @@ class DFRobot_BC20(object):
   def enqueue(self,handle,data):
     print(data)
     '''!
-      @brief 数据入队函数
+      @brief Data enqueue function
     '''
     global front
     global rear
@@ -204,7 +204,7 @@ class DFRobot_BC20(object):
 
   def dequeue(self):   
     '''!
-      @brief 数据出队函数
+      @brief Data dequeue function
     '''
     global front
     global rear   
@@ -217,7 +217,7 @@ class DFRobot_BC20(object):
 
   def flush_queue(self):
     '''!
-      @brief 清空队列中的数据
+      @brief Clear data in the queue
     '''
     global front
     global rear  
@@ -227,7 +227,7 @@ class DFRobot_BC20(object):
 
   def get_rec_data_for_num(self,num):
     '''!
-      @brief   获取指定字符串中哪一个的数据
+      @brief   Get data from one of the specified character string
     '''
     global front
     global rear
@@ -244,7 +244,7 @@ class DFRobot_BC20(object):
   
   def get_rec_data_for_num_no_check(self,num):
     '''
-      @brief 获取指定字符串中哪一个的数据,并且不检查数据是否规范
+      @brief Get data from one of the specified character string, and check whether the data is standardized
       @param num
     '''
     global front
@@ -273,10 +273,10 @@ class DFRobot_BC20(object):
   def get_Int_for_string(self,CMD,basic,n):
     '''
       @brief Send the command and get the number specified in the returned command
-      @param CMD 用来设置在哪个命令后的数字
-      @param basic 等待分析的数据
-      @param n 获取几个数据
-      @return uint8_t类型
+      @param CMD Set the number for commands
+      @param basic The data to be analyzed
+      @param n Get several data
+      @return uint8_t type
     '''
     self.flush_queue()
     self.send_cmd(CMD)
@@ -298,7 +298,7 @@ class DFRobot_BC20(object):
   
   def change_color(self,newcolor):
     '''
-      @brief 改变模组的LED灯的颜色
+      @brief Change the LED color of the module
       @param newColor
       @n     RED
       @n     BLUE
@@ -313,7 +313,7 @@ class DFRobot_BC20(object):
   
   def led_on(self):
     '''
-      @brief 打开模组的LED灯
+      @brief Turn on LED of the module
     '''
     global color
     self.flush_queue()
@@ -321,18 +321,18 @@ class DFRobot_BC20(object):
     
   def led_off(self):
     '''
-      @brief 关闭模组的LED灯
+      @brief Turn off LED of the module
     '''
     self.flush_queue()
     self.send_cmd("LED_W_OFF")    
   
   def check_rec_data(self,str):
     '''
-      @brief 检查从NB模组中获取的数据中是否有这个字符串
-      @param str 等待分析的字符串
-      @return bool类型
-      @retval 1 唤醒成功
-      @retval 0 唤醒失败
+      @brief Check whether the character string is present in the data obtained from NB module
+      @param str The character string to be analyzed
+      @return Bool type
+      @retval 1 The waking up succeeded
+      @retval 0 The waking up failed
     '''
     p=self.dequeue()
     while p!=None:
@@ -343,10 +343,10 @@ class DFRobot_BC20(object):
     
   def check_BC20(self):
     '''
-      @brief 检测BC20是否存在
-      @return bool类型，表示BC20存在的状态
-      @retval 1 存在
-      @retval 0 不存在
+      @brief Check whether BC20 exists
+      @return Bool type, indicate BC20 existing status
+      @retval 1 Existed
+      @retval 0 Not exist
     '''
     self.flush_queue()
     self.send_cmd("")
@@ -355,10 +355,10 @@ class DFRobot_BC20(object):
 
   def power_on(self):
     '''
-      @brief 使能NB模组
-      @return bool类型，表示返回初始化的状态
-      @retval 1 成功
-      @retval 0 失败
+      @brief Enable NB module
+      @return Bool type, indicate returning init status
+      @retval 1 Succeeded
+      @retval 0 Failed
     '''
     '''if self.check_BC20():
       return True'''
@@ -371,14 +371,14 @@ class DFRobot_BC20(object):
     
   def config_sleep_mode(self,mode):
     '''
-      @brief 配置BC20模块进入睡眠模式
+      @brief Configure sleep mode for BC20 module
       @param mode
       @n     eSleepMode_Disable
       @n     eSleepMode_DeepSleep 
       @n     eSleepMode_Light
-      @return bool类型
-      @retval 1 发布成功
-      @retval 0 发布失败
+      @return Bool type
+      @retval 1 Succeeded
+      @retval 0 Failed
     '''
     self.flush_queue()
     self.send_cmd("QSCLK",str(mode))
@@ -387,10 +387,10 @@ class DFRobot_BC20(object):
   
   def rest(self,mode=1):
     '''
-      @brief 模块软复位
-      @return bool类型，复位操作是否成功
-      @retval 1 成功
-      @retval 0 失败
+      @brief Module soft reset
+      @return Bool type, indicate whether the reset succeeded
+      @retval 1 Succeeded
+      @retval 0 Failed
     '''
     self.flush_queue()
     self.send_cmd("QRST",str(mode))
@@ -400,10 +400,10 @@ class DFRobot_BC20(object):
     
   def check_NB_card(self):
     '''
-      @brief 检测NB移动卡是否存在
-      @return bool类型，表示STM32存在的状态
-      @retval 1 存在
-      @retval 0 不存在
+      @brief Check whether NB card exists
+      @return Bool type, indicate STM32 existing status
+      @retval 1 Existed
+      @retval 0 Not exist
     '''
     self.flush_queue()
     self.send_cmd("CIMI")  
@@ -415,10 +415,10 @@ class DFRobot_BC20(object):
 
   def remove_sth_string(self,sth,std):  
     '''
-      @brief 从一串字符中移除某一部分字符串
-      @param sth 等待分析的字符串
-      @param str 作为保留的字符串
-      @return char*类型 剩余的字符串
+      @brief From a string of characters remove part of them
+      @param sth The character string to be analyzed
+      @param str Reserved character string
+      @return char*type, remaining character string
     '''
     if std == None:
       return  
@@ -430,10 +430,10 @@ class DFRobot_BC20(object):
     
   def get_sth_front_string(self,sth,std):
     '''
-      @brief 从一串字符中获取某一部分字符串
-      @param sth 等待分析的字符串
-      @param std 作为保留的字符串
-      @return char*类型 保留的字符串
+      @brief From a string of characters get part of them
+      @param sth The character string to be analyzed
+      @param std Reserved character string
+      @return char*type, reserved character string
     '''
     if std == None:
       return   
@@ -446,7 +446,7 @@ class DFRobot_BC20(object):
         
   def get_GSN(self,cmd):
     '''
-      @brief 获取国际移动设备识别码信息
+      @brief Get IMEI information
     '''
     self.flush_queue()
     self.send_cmd("CGSN",str(cmd))
@@ -461,7 +461,7 @@ class DFRobot_BC20(object):
   def get_QCCID(self):
     '''
       @brief get USIM card identification number
-      @return String类型，USIM card identification number
+      @return String type, USIM card identification number
     '''
     self.flush_queue()
     self.send_cmd("QCCID")
@@ -474,8 +474,8 @@ class DFRobot_BC20(object):
 
   def get_IMI(self):
     '''
-      @brief 获取国际移动用户识别码
-      @return uint8_t *类型，识别码数组的指针
+      @brief Get IMSI
+      @return uint8_t *type, the pointer to identity array
     '''
     self.flush_queue()
     self.send_cmd("CIMI")    
@@ -485,17 +485,17 @@ class DFRobot_BC20(object):
     
   def get_GATT(self):
     '''
-      @brief 检测设备是否已经连接上附近的NB基站
-      @return uint8_t类型，获取模块连接状态
-      @retval 1 已连接
-      @retval 0 正在连接
+      @brief Check whether the device is connected to the nearby NB base station
+      @return uint8_t type, get the module connection status
+      @retval 1 Connected
+      @retval 0 Connecting
     '''
     return (self.get_Int_for_string("CGATT?","CGATT",1))
     
   def get_CLK(self):
     '''
-      @brief 获取此时的网络时间
-      @return String类型，时间以字符串的形式输出
+      @brief Get the current network time
+      @return String type, the time is output as a character string
     '''
     self.flush_queue()
     self.send_cmd("CCLK?")   
@@ -525,7 +525,7 @@ class DFRobot_BC20(object):
     
   def get_SQ(self):
     '''
-      @brief 获取此时NB网络信号强度
+      @brief Get the current NB network signal quality
     '''
     self.flush_queue()
     self.send_cmd("CSQ")    
@@ -542,13 +542,13 @@ class DFRobot_BC20(object):
 
   def open_MQTT(self,connectID,Server,Port):
     '''
-      @brief 打开MQTT连接通道
+      @brief Open MQTT connecting channel
       @param connectID
       @param Server
       @param Port
-      @return bool类型
-      @retval 1 打开成功
-      @retval 0 打开失败
+      @return Bool type
+      @retval 1 Opening succeeded
+      @retval 0 Opening failed
     '''
     temptime=0
     tempStr ="QMTOPEN"+"="+connectID+",\""+Server+"\","+Port
@@ -571,11 +571,11 @@ class DFRobot_BC20(object):
 
   def close_MQTT(self,ConnectID):
      '''
-       @brief 关闭MQTT连接通道
+       @brief Close MQTT connecting channel
        @param connectID
-       @return bool类型
-       @retval 1 关闭成功
-       @retval 0 关闭失败
+       @return Bool type
+       @retval 1 Closing succeeded
+       @retval 0 Closing failed
      '''
      self.flush_queue()
      self.send_cmd("QMTCLOSE",str(ConnectID))
@@ -584,13 +584,13 @@ class DFRobot_BC20(object):
 
   def set_server(self,IPAddress,port,connectID="0"):
     '''
-      @brief 设置MQTT服务器信息
+      @brief Set MQTT server information
       @param IPAddress
       @param port
       @param connectID
-      @return bool类型
-      @retval 1 设置成功
-      @retval 0 设置失败
+      @return Bool type
+      @retval 1 The setting succeeded
+      @retval 0 The setting failed
     '''
     while self.open_MQTT(connectID,IPAddress,port)==False :
       self.close_MQTT(0)
@@ -598,27 +598,27 @@ class DFRobot_BC20(object):
  
   def publish(self,topic,msg):  
     '''
-      @brief 发布MQTT信息
+      @brief Publish MQTT message
       @param topic
       @param msg
-      @return bool类型
-      @retval 1 发布成功
-      @retval 0 发布失败
+      @return Bool type
+      @retval 1 The publishing succeeded
+      @retval 0 The publishing failed
     '''
     self.pub_message('0','1','1','0',topic,msg)      
  
   def pub_message(self,connectID,msgID,qos,retain,topic,msg):
     '''
-      @brief 发布MQTT信息
+      @brief Publish MQTT message
       @param connectID
       @param msgID
       @param qos
       @param retain
       @param topic
       @param msg
-      @return bool类型
-      @retval 1 发布成功
-      @retval 0 发布失败
+      @return Bool type
+      @retval 1 The publishing succeeded
+      @retval 0 The publishing failed
     '''
     self.flush_queue()
     tempStr="QMTPUB"+"="+connectID+","+msgID+","+qos+","+retain+","+"\""+topic+"\","+"\""+msg+"\""
@@ -627,23 +627,23 @@ class DFRobot_BC20(object):
 
   def connected(self):
     '''
-      @brief 设备是否已经连接服务器
-      @return bool类型
-      @retval 1 已经连接
-      @retval 0 未连接
+      @brief Whether the device is connected to the server
+      @return Bool type
+      @retval 1 Connected
+      @retval 0 Not connected
     '''
     return self.mqttConneced
 
   def connect_server(self,clientID,username,password,connectID="0"):
     '''
-      @brief 连接服务器
+      @brief Connect to server
       @param connectID
       @param clientID
       @param UserName
       @param PassWord
-      @return bool类型
-      @retval 1 连接成功
-      @retval 0 连接失败
+      @return Bool type
+      @retval 1 The connecting succeeded
+      @retval 0 The connecting failed
     '''
     temptime=0
     tempStr="QMTCONN"+"="+connectID+",\""+clientID+"\""+",\""+username+"\""+",\""+password+"\""
@@ -668,9 +668,9 @@ class DFRobot_BC20(object):
   def get_QMTCONN(self):
     '''
       @brief Used to detect the connection between the device and the server
-      @return bool类型
-      @retval 1 获取成功
-      @retval 0 获取失败
+      @return Bool type
+      @retval 1 The getting succeeded
+      @retval 0 The getting failed
     '''
     self.flush_queue()
     self.send_cmd("QMTCONN?")
@@ -686,14 +686,14 @@ class DFRobot_BC20(object):
 
   def sub_topic(self,connectID,msgID,topic,qos):
     '''
-      @brief 订阅MQTT信息
+      @brief Subscribe MQTT information
       @param connectID
       @param msgID
       @param topic
       @param qos
-      @return bool类型
-      @retval 1 订阅成功
-      @retval 0 订阅失败
+      @return Bool type
+      @retval 1 The subscription succeeded
+      @retval 0 The subscription failed
     '''
     tempStr="QMTSUB"+"="+connectID+","+msgID+",\""+topic+"\","+qos
     self.flush_queue()
@@ -703,14 +703,14 @@ class DFRobot_BC20(object):
 
   def set_callback(self,call):
     '''
-      @brief 设置订阅模式下MQTT信息的回调函数
+      @brief Set call back function of MQTT message in subscription mode
     '''
     self.callback=call
     
 
   def loop(self):
     '''
-      @brief 订阅模式下循环接收数据
+      @brief Receive data on a loop in subscription mode
     '''
     if self.available():
       tempStr=self.read_data(1000)
@@ -731,14 +731,14 @@ class DFRobot_BC20(object):
 
   def set_aliyun_server(self,ProductKey,IPAddress,port,connectID="0"):
     '''
-      @brief 设置阿里云连接的相关信息
+      @brief Set information about Aliyun connection
       @param ProductKey
       @param IPAddress
       @param port
       @param connectID
-      @return bool类型
-      @retval 1 设置成功
-      @retval 0 设置失败
+      @return Bool type
+      @retval 1 The setting succeeded
+      @retval 0 The setting failed
     '''
     IPaddress=ProductKey+IPAddress
     while self.open_MQTT(connectID,IPaddress,port) == False:
@@ -750,9 +750,9 @@ class DFRobot_BC20(object):
       @param ProductKey
       @param DeviceName
       @param DeviceSecret
-      @return bool类型
-      @retval 1 连接成功
-      @retval 0 连接失败 
+      @return Bool type
+      @retval 1 The connecting succeeded
+      @retval 0 The connecting failed
     ''' 
     temptime=0    
     tempStr="QMTCFG"+"=\"ALIAUTH\",0,\""+ProductKey+"\",\""+DeviceName+"\",\""+DeviceSecret+"\""
@@ -784,13 +784,13 @@ class DFRobot_BC20(object):
     
   def set_QGNSSC(self,mode):
     '''
-      @brief 设置GNSS是否打开
+      @brief Set whether to enable GNSS
       @param mode
-      @n 	1 打开
-      @n 	0 关闭
-      @return bool类型
-      @retval 1 已经打开
-      @retval 0 没有打开
+      @n 	1 Enabled
+      @n 	0 Disabled
+      @return Bool type
+      @retval 1 Enabled
+      @retval 0 Disabled
     '''
     self.flush_queue()
     self.send_cmd("QGNSSC",str(mode))
@@ -799,23 +799,23 @@ class DFRobot_BC20(object):
     
   def get_QGNSSC(self):
     '''
-     @brief 获取GNSS是否被打开 
-     @return uint8_t类型
-     @retval 1 已经打开
-     @retval 0 没有打开
+     @brief Get GNSS enabling status 
+     @return uint8_t type
+     @retval 1 Enabled
+     @retval 0 Disabled
     '''
     return self.get_Int_for_string("QGNSSC?","QGNSSC",1)    
 
   def set_PSM_mode(self,status):
     '''
-      @brief 设置BC20进入PSM模式
+      @brief Set BC20 to enter PSM mode
       @param mode
       @n     ePSM_OFF
       @n     ePSM_ON
       @n     ePSM_OFF_ResetParam
-      @return bool类型
-      @retval 1 唤醒成功
-      @retval 0 唤醒失败
+      @return Bool type
+      @retval 1 The waking up succeeded
+      @retval 0 The waking up failed
     '''
     self.flush_queue()
     tempStr="CPSMS"+"="+str(status)+",,,\""+self._TAUValue+"\",\""+self._AcTValue+"\""
@@ -824,27 +824,27 @@ class DFRobot_BC20(object):
 
   def config_sleep_mode(self,mode):
     '''
-      @brief 配置BC20模块进入睡眠模式
+      @brief Configure sleep mode for BC20 module
       @param mode
       @n     eSleepMode_Disable
       @n     eSleepMode_DeepSleep 
       @n     eSleepMode_Light
-      @return bool类型
-      @retval 1 发布成功
-      @retval 0 发布失败
+      @return Bool type
+      @retval 1 Succeeded
+      @retval 0 Failed
     '''
     self.set_QSCLK(mode)
 
   def set_QSCLK(self,mode):
     '''
-      @brief 设置低功耗模式
+      @brief Set low-power mode
       @param mode
       @n      0 Disable Sleep Mode.
       @n      1 Enable light sleep and deep sleep, wakeup by PSM_EINT (Falling Edge).
       @n      2 Enable light sleep only, wakeup by Main UART.
-      @return bool类型
-      @retval 1 成功
-      @retval 0 失败
+      @return Bool type
+      @retval 1 Succeeded
+      @retval 0 Failed
     '''
     self.flush_queue()
     self.send_cmd("QSCLK",str(mode))
@@ -853,10 +853,10 @@ class DFRobot_BC20(object):
 
   def stm_low_power(self):
     '''
-      @brief 控制STM32进入低功耗模式
-      @return bool类型
-      @retval 1 唤醒成功
-      @retval 0 唤醒失败
+      @brief Control STM32 to enter low-power mode
+      @return Bool type
+      @retval 1 The waking up succeeded
+      @retval 0 The waking up failed
     '''
     self.change_color('B')
     self.led_on()
@@ -869,11 +869,11 @@ class DFRobot_BC20(object):
 
   def stm_wake_up(self,Awake_Pin):
     '''
-      @brief 控制STM32唤醒
-      @param Awake_Pin 控制触发唤醒STM32的引脚
-      @return bool类型
-      @retval 1 唤醒成功
-      @retval 0 唤醒失败
+      @brief Control STM32 waking up
+      @param Awake_Pin Control the pin triggering STM32 waking up
+      @return Bool type
+      @retval 1 The waking up succeeded
+      @retval 0 The waking up failed
     '''
     try:  
       GPIO.setmode(GPIO.BOARD)
@@ -889,10 +889,10 @@ class DFRobot_BC20(object):
     
   def BC20_wake_up(self):
     '''
-      @brief 唤醒BC20模块
-      @return bool类型
-      @retval 1 唤醒成功
-      @retval 0 唤醒失败
+      @brief Wake up BC20 module
+      @return Bool type
+      @retval 1 The waking up succeeded
+      @retval 0 The waking up failed
     '''
     self.flush_queue()
     self.send_cmd("WakeUp")
@@ -902,10 +902,10 @@ class DFRobot_BC20(object):
 
   def check_stm_stauts(self):
     '''
-      @brief 检测STM32是否存在
-      @return bool类型，表示STM32存在的状态
-      @retval 1 存在
-      @retval 0 不存在
+      @brief Check whether STM32 exists
+      @return Bool type, indicate STM32 existing status
+      @retval 1 Existed
+      @retval 0 Not exist
     '''
     self.flush_queue()
     self.send_cmd("STMSTATUS")
@@ -915,11 +915,11 @@ class DFRobot_BC20(object):
   def get_satellite_Information(self,start,num,_str,sys):
     '''
       @brief Given a satellite data, which satellite does it start with, how many satellites do you have
-      @param start 开始的字符
-      @param num 获取几颗卫星的数据
-      @param str 给定的卫星数据字符串
-      @param sys 等待写入flash的数据
-      @return uint8_t类型
+      @param start Starting character
+      @param num Get data of the satellites
+      @param str The given satellite data character string
+      @param sys Flash data to be written
+      @return uint8_t type
     '''
     tempStr=_str
     for i in range(num):
@@ -948,8 +948,8 @@ class DFRobot_BC20(object):
         
   def check_satellite_use(self,num):
     '''
-      @brief 检查哪种卫星使用
-      @param num 设置卫星信息列表的第几个数据
+      @brief Check which satellite is in use
+      @param num Set the data number in the satellite information list
     '''
     if self.sSAT.data[num].SYS == "GPS":
       temp = 0
@@ -963,7 +963,7 @@ class DFRobot_BC20(object):
 
   def check_use(self):
     '''
-      @brief 检查哪颗卫星可以使用
+      @brief Check which satellite can be used
     '''
     self.sSAT.USE = 0
     for i in range(self.sGSA.NUM):
@@ -973,10 +973,10 @@ class DFRobot_BC20(object):
         
   def get_QGNSSRD(self,cmd):
     '''
-      @brief 获取所有的卫星信息
-      @return uint8_t类型
-      @retval 1 获取成功
-      @retval 0 获取失败
+      @brief Get all the satellite information
+      @return uint8_t type
+      @retval 1 The getting succeeded
+      @retval 0 The getting failed
     '''
     if len(cmd)>0:
       readnum = 2
@@ -1002,11 +1002,11 @@ class DFRobot_BC20(object):
             else:
               tempSYS = "N/A"    
             tempStr = self.remove_sth_string(",",tempStr)
-            TotSEN=int(self.get_sth_front_string(",",tempStr)) # 语句的总数目
+            TotSEN=int(self.get_sth_front_string(",",tempStr)) # SQL count
             tempStr = self.remove_sth_string(",",tempStr)
-            NumSEN=int(self.get_sth_front_string(",",tempStr)) # 当前语句序号
+            NumSEN=int(self.get_sth_front_string(",",tempStr)) # The current SQL number
             tempStr = self.remove_sth_string(",",tempStr)
-            NumSAT=int(self.get_sth_front_string(",",tempStr)) # 可见卫星数
+            NumSAT=int(self.get_sth_front_string(",",tempStr)) # Visible satellite count
             tempStr = self.remove_sth_string(",",tempStr)
             if TotSEN > 0:
               if NumSEN == 1:
@@ -1189,9 +1189,9 @@ class DFRobot_BC20(object):
     
   def Longitude_conversion(self,strdata):
     '''
-      @brief 从所有的卫星信息中分离出纬度信息
-      @param strdata 原始的卫星数据
-      @return 分离后的数据
+      @brief Separate the latitude information from all the satellite information
+      @param strdata Raw satellite data
+      @return The separated data
     '''
     tempStr = strdata
     temp=0
@@ -1214,7 +1214,7 @@ class DFRobot_BC20(object):
 
 class DFRobot_BC20_Serial(DFRobot_BC20):
   '''
-    @brief 串口通信类
+    @brief Serial communication class
   '''
   def __init__(self):
     if ser.isOpen() is False:
@@ -1223,10 +1223,10 @@ class DFRobot_BC20_Serial(DFRobot_BC20):
         
   def available(self):
     '''
-      @brief 判断模组是否有数据返回
-      @return bool类型
-      @retval 1 有数据返回
-      @retval 0 没有数据返回
+      @brief Check whether data returned from module is available
+      @return Bool type
+      @retval 1 Available
+      @retval 0 Not available
     '''
     if ser.inWaiting() !=0:
       return True
@@ -1234,7 +1234,7 @@ class DFRobot_BC20_Serial(DFRobot_BC20):
   
   def send_cmd(self,CMD,arg=""):
     '''
-      @brief 主控向模组发送数据，由子类来具体实现
+      @brief The MCU send data to the module, implemented by subclass
       @param str
       @param CMD
     '''
@@ -1249,7 +1249,7 @@ class DFRobot_BC20_Serial(DFRobot_BC20):
   
   def read_data(self,timeout):
     '''
-      @brief 从模组获取数据
+      @brief Get data from the module
     '''
     recv=""
     ltime=int(round(time.time() * 1000))
@@ -1263,8 +1263,8 @@ class DFRobot_BC20_Serial(DFRobot_BC20):
      
   def recevice_at_cmd(self,timeout):
     '''
-      @brief 从模组获取数据
-      @param timeout 持续时间内一直读取
+      @brief Get data from the module
+      @param timeout Read repeatedly for the duration
     '''
     ID=0
     recv=""
@@ -1286,7 +1286,7 @@ class DFRobot_BC20_Serial(DFRobot_BC20):
       
 class DFRobot_BC20_IIC(DFRobot_BC20): 
   '''
-    @brief IIC通信类
+    @brief I2C communication class
   '''
   def __init__(self,addr):
     self._addr = addr
@@ -1294,7 +1294,7 @@ class DFRobot_BC20_IIC(DFRobot_BC20):
     super(DFRobot_BC20_IIC, self).__init__()  
   def BC20_get_regs(self,reg,lenth):
     '''
-      @brief 从模组获取数据
+      @brief Get data from the module
     '''
     try:  
       rslt=[]
@@ -1308,9 +1308,9 @@ class DFRobot_BC20_IIC(DFRobot_BC20):
     
   def BC20_set_regs(self,reg,data):
     '''
-      @brief 主控向模组发送数据，由子类来具体实现
-      @param reg 寄存器地址
-      @param data 待写入的数据
+      @brief The MCU send data to the module, implemented by subclass
+      @param reg Register address
+      @param data Data to be written
     '''
     print(data)
     try:
@@ -1326,10 +1326,10 @@ class DFRobot_BC20_IIC(DFRobot_BC20):
       
   def available(self):
     '''
-      @brief 判断模组是否有数据返回
-      @return bool类型
-      @retval 1 有数据返回
-      @retval 0 没有数据返回
+      @brief Check whether data returned from module is available
+      @return Bool type
+      @retval 1 Available
+      @retval 0 Not available
     '''
     recv=self.BC20_get_regs(0x00,1)
     if recv[0]>0:
@@ -1338,7 +1338,7 @@ class DFRobot_BC20_IIC(DFRobot_BC20):
 
   def send_cmd(self,CMD,arg=""): 
     '''
-      @brief 主控向模组发送数据，由子类来具体实现
+      @brief The MCU send data to the module, implemented by subclass
       @param str
       @param CMD
     '''
@@ -1355,7 +1355,7 @@ class DFRobot_BC20_IIC(DFRobot_BC20):
 
   def read_data(self,timeout):
     '''
-      @brief 从模组获取数据
+      @brief Get data from the module
     '''
     recv=""
     ltime=int(round(time.time() * 1000))
@@ -1370,8 +1370,8 @@ class DFRobot_BC20_IIC(DFRobot_BC20):
  
   def recevice_at_cmd(self,timeout):
     '''
-      @brief 从模组获取数据
-      @param timeout 持续时间内一直读取
+      @brief Get data from the module
+      @param timeout Read repeatedly for the duration
     '''
     ID=0
     recv=""
