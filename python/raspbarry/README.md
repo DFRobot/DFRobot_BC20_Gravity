@@ -417,37 +417,37 @@ Download the library to Raspberry Pi before use, then open the routine folder. I
   def check_satellite_use(self,num):
 
   '''
-    @brief 检查哪颗卫星可以使用
+    @brief Check which satellite is in use
   '''
   def check_use(self):
 
   '''
-    @brief 获取所有的卫星信息
-    @return uint8_t类型
-    @retval 1 获取成功
-    @retval 0 获取失败
+    @brief Get all the satellite information
+    @return uint8_t type
+    @retval 1 The getting succeeded
+    @retval 0 The getting failed
   '''
   def get_QGNSSRD(self,cmd):
 
   '''
-    @brief 从所有的卫星信息中分离出纬度信息
-    @param strdata 原始的卫星数据
-    @return 分离后的数据
+    @brief Separate the latitude information from all the satellite information
+    @param strdata Raw satellite data
+    @return The separated data 
   '''
   def Longitude_conversion(self,strdata):
 ```  
 
 ## Compatibility 
 
-| 主板         | 通过 | 未通过 | 未测试 | 备注 |
+| MCU         | Work Well | Work Wrong | Untested | Remarks |
 | ------------ | :--: | :----: | :----: | :--: |
 | RaspberryPi2 |      |        |   √    |      |
 | RaspberryPi3 |      |        |   √    |      |
 | RaspberryPi4 |  √   |        |        |      |
 
-* Python 版本
+* Python version
 
-| Python  | 通过 | 未通过 | 未测试 | 备注 |
+| Python  | Work Well | Work Wrong | Untested | Remarks |
 | ------- | :--: | :----: | :----: | ---- |
 | Python2 |  √   |        |        |      |
 | Python3 |  √   |        |        |      |
