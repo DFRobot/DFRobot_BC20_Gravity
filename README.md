@@ -1,9 +1,9 @@
 # DFRobot_BC20_Gravity
 - [中文版](./README_CN.md)
 
-This Gravity: I2C & UART BC20 NB-IoT & GNSS communication module embraces NB-IoT low-power cellular communication and GPS/BeiDou precise positioning function. As long as the device is located in the area covered by  NB-IoT signal, the data collected by the development board or the device can be easily uploaded into the cloud, no matter indoor or outdoor. This module can also be remotely controlled by sending commands through the cloud, realizing "IOT" through communication and control between the cloud and the real device. It is especially applicable to the environmental monitoring station, bike-sharing, vehicle positioning tracker, and other outdoor IoT application scenarios.
+The Gravity:I2C & UART BC20 NB-IoT & GNSS is an IoT communication module with NB-IoT low-power cellular communication and GPS/BeiDou precise positioning functions. As long as your device is within the NB-IoT signal converage area, the data collected by the development board or the device can be easily uploaded into the cloud whether it is indoor or outdoor. This module supports the bidirectional communication and control between cloud and real device by sending commands from cloud to remotely control device, by which to realize "connecting things". It is especially applicable to the environmental monitoring station, bike-sharing, vehicle positioning tracker, and other outdoor IoT application scenarios.
 
-Besides, the equipped GPS/BeiDou positioning function can help obtain precise geographical coordinates and timing information and monitor the device's physical location in real-time by placing the positioning antenna outdoors. Users can visually know the module operating status through the onboard RGB indicator. To work well with general Arduino, micro:bit, control board, Raspberry Pi, and other types of 3.3V/5V development boards, this module employs Gravity I2C & UART standard interface and supports all kinds of development boards that users generally used.
+Besides, the equipped GPS/BeiDou dual mode positioning function can help obtain precise geographical coordinates and timing information so as to monitor the device's physical location in real-time when the positioning antenna is placed outdoor. Besides, the onboard RGB indicator provides users with visual device working status. The module works well with 3.3V/5V development boards like Arduino, micro:bit, control board, Raspberry Pi, etc. It employs Gravity I2C & UART standard interface and supports commonly-used development boards in software.
 
 ![正反面svg效果图](./resources/images/TEL0130.png)
 
@@ -22,7 +22,7 @@ Besides, the equipped GPS/BeiDou positioning function can help obtain precise ge
 
 ## Summary
 
-This library provides the acquisition and parsing of satellite data, which contains the interpretation and data parsing of GGA, GLL, GSA, GSV, RMC and VTG in GPS & BeiDou satellite data; it also provides DFRobot's EASY-IOT and ALIYUN's IoT communication routines based on MQTT protocol.
+This library provides the examples of the acquisition and parsing of satellite data, which contains the interpretation and data parsing of GGA, GLL, GSA, GSV, RMC and VTG in GPS & BeiDou satellite data; it also provides DFRobot's EASY-IOT and ALIYUN's IoT communication examples based on MQTT protocol.
 
 ## Installation
 
@@ -42,7 +42,7 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn configKeepalive
-   * @brief Configure keepalive packet sending time after timeout
+   * @brief Configure keepalive packet sending interval time
    * @return Bool type, indicate the status of configuring keepalive time
    * @retval 1 Succeeded
    * @retval 0 Failed
@@ -76,7 +76,7 @@ To use this library, first download the library file, paste it into the \Arduino
   /**
    * @fn checkNBCard
    * @brief Check whether NB card exists
-   * @return Bool type, indicate STM32 existing status
+   * @return Bool type, indicate NB card existing status
    * @retval 1 Existed
    * @retval 0 Not exist
    */
@@ -90,7 +90,7 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn getGSN
-   * @brief Get IMEI information
+   * @brief Get IMEI number information
    */
   void getGSN(uint8_t cmd=0);
 
@@ -105,8 +105,8 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn getIMI
-   * @brief Get IMSI
-   * @return uint8_t * type, the pointer to identity array
+   * @brief Get IMSI code
+   * @return uint8_t * type, the pointer to identity code array
    */
   uint8_t *getIMI(void);
 
@@ -148,7 +148,7 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /*!
    * @fn getQGNSSC
-   * @brief Get GNSS enabling status
+   * @brief Get GNSS status
    * @return uint8_t type
    * @retval 1 Enabled
    * @retval 0 Disabled
@@ -171,23 +171,23 @@ To use this library, first download the library file, paste it into the \Arduino
    * @fn getQGNSSRD
    * @brief Get all the GNSS information
    * @return uint8_t type
-   * @retval 1 The getting succeeded
-   * @retval 0 The getting failed
+   * @retval 1 Getting data succeeded
+   * @retval 0 Getting data failed
    */
   uint8_t getQGNSSRD(void);
 
   /*!
    * @fn getQGNSSRD2
-   * @brief Get all the GNSS information (designed for boards with smaller RAM like Arduino and UNO)
+   * @brief Get all the GNSS information(designed for boards with smaller RAM like Arduino UNO, etc.)
    * @return uint8_t type
-   * @retval 1 The getting succeeded
-   * @retval 0 The getting failed
+   * @retval 1 Getting data succeeded
+   * @retval 0 Getting data failed
    */
   uint8_t getQGNSSRD2(void);
 
   /*!
    * @fn getQGNSSRD
-   * @brief Get information of one type of satellite
+   * @brief Get one type of satellite information
    * @param sth
    * @n		 NMEA_GGA
    * @n		 NMEA_GLL
@@ -196,8 +196,8 @@ To use this library, first download the library file, paste it into the \Arduino
    * @n		 NMEA_RMC
    * @n		 NMEA_VTG
    * @return Bool type
-   * @retval 1 The getting succeeded
-   * @retval 0 The getting failed
+   * @retval 1 Getting data succeeded
+   * @retval 0 Getting data failed
    */
   bool getQGNSSRD(char* sth);
 
@@ -228,7 +228,7 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn openMQTT
-   * @brief Open MQTT connecting channel
+   * @brief Open MQTT connection channel
    * @param connectID
    * @param Server
    * @param Port
@@ -240,7 +240,7 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn closeMQTT
-   * @brief Close MQTT connecting channel
+   * @brief Close MQTT connection channel
    * @param connectID
    * @return Bool type
    * @retval 1 Closing succeeded
@@ -357,7 +357,7 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn configSleepMode
-   * @brief Configure sleep mode for BC20 module
+   * @brief Set BC20 module to enter sleep mode
    * @param mode
    * @n     eSleepMode_Disable,
    * @n     eSleepMode_DeepSleep,
@@ -403,37 +403,37 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn removeSthString
-   * @brief From a string of characters remove part of them
+   * @brief Remove sth from a char string 
    * @param sth The character string to be analyzed
-   * @param str Reserved character string
-   * @return char* type, remaining character string
+   * @param str The removed character string
+   * @return char* type, character string remained
    */
   char*removeSthString(char* sth, char* str);
 
   /**
    * @fn removeSthString
-   * @brief From a string of characters remove part of them
+   * @brief Remove sth from a char string
    * @param sth The character string to be analyzed
-   * @param str Removed character string
-   * @return String type, remaining character string
+   * @param str The removed character string
+   * @return String type, character string remained
    */
   String removeSthString(String sth, String str);
 
   /**
    * @fn GetSthfrontString
-   * @brief From a string of characters get part of them
+   * @brief Get sth from a char string 
    * @param sth The character string to be analyzed
-   * @param str Reserved character string
-   * @return char* type, reserved character string
+   * @param str The Reserved character string
+   * @return char* type, character string remained
    */
   char* GetSthfrontString(char* sth, char* str);
 
   /**
    * @fn GetSthfrontString
-   * @brief From a string of characters get part of them
+   * @brief Get sth from a char string 
    * @param sth The character string to be analyzed
-   * @param str Reserved character string
-   * @return String type, reserved character string
+   * @param str The reserved character string
+   * @return String type, character string remained 
    */
   String GetSthfrontString(String sth, String str);
 
@@ -442,8 +442,8 @@ To use this library, first download the library file, paste it into the \Arduino
    * @brief Check whether the character string is present in the data obtained from NB module
    * @param str The character string to be analyzed
    * @return Bool type
-   * @retval 1 The waking up succeeded
-   * @retval 0 The waking up failed
+   * @retval 1 succeeded
+   * @retval 0 failed
    */
   bool CheckRecData(char* str);
 
@@ -455,14 +455,14 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn getRecData
-   * @brief Gets information about a parameter from the returned data.For example, the CIMI number of the SIM card
+   * @brief Gets information about a parameter from the returned data. For example, the CIMI number of the SIM card
    * @param INFO
    */
   void getRecData(uint8_t INFO);
 
   /**
    * @fn getRecDataforNum
-   * @brief Get data from one of the specified character string
+   * @brief Get data from a specified character string
    * @param num
    * @param buf
    */
@@ -470,7 +470,7 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn getRecDataforNum
-   * @brief Get data from one of the specified character string, and check whether the data is standardized
+   * @brief Get data from a specified character string, and check whether the data is standardized
    * @param num
    * @param buf
    */
@@ -479,9 +479,9 @@ To use this library, first download the library file, paste it into the \Arduino
   /**
    * @fn getIntforString
    * @brief Send the command and get the number specified in the returned command
-   * @param CMD Set the number for commands
+   * @param CMD Set command to be parsed 
    * @param basic The data to be analyzed
-   * @param n Get several data
+   * @param n The number of data to be obtained 
    * @return uint8_t type
    */
   uint8_t getIntforString(String CMD,String basic,uint8_t n);
@@ -489,10 +489,10 @@ To use this library, first download the library file, paste it into the \Arduino
   /**
    * @fn getSatelliteInformation
    * @brief Given a satellite data, which satellite does it start with, how many satellites do you have
-   * @param start Starting character
-   * @param num Get data of the satellites
-   * @param str The given satellite data character string
-   * @param sys Flash data to be written
+   * @param start The starting character
+   * @param num The number of satellites to get data from 
+   * @param str Data character string of the given satellite 
+   * @param sys Data to be written to Flash 
    * @return uint8_t type
    */
   void getSatelliteInformation(uint8_t start, uint8_t num, char* str, char* sys);
