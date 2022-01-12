@@ -187,7 +187,7 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /*!
    * @fn getQGNSSRD
-   * @brief Get the GNSS information of one type
+   * @brief Get information of one type of satellite
    * @param sth
    * @n		 NMEA_GGA
    * @n		 NMEA_GLL
@@ -363,8 +363,8 @@ To use this library, first download the library file, paste it into the \Arduino
    * @n     eSleepMode_DeepSleep,
    * @n     eSleepMode_Light
    * @return Bool type
-   * @retval 1 The config succeeded
-   * @retval 0 The config failed
+   * @retval 1 Succeeded
+   * @retval 0 Failed
    */
   bool configSleepMode(eSleepMode_t mode);
 
