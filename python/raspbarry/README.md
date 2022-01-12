@@ -417,7 +417,7 @@ Download the library to Raspberry Pi before use, then open the routine folder. I
   def check_satellite_use(self,num):
 
   '''
-    @brief Check which satellite is in use
+    @brief Check which satellite can be used
   '''
   def check_use(self):
 
