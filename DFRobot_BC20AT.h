@@ -1,6 +1,6 @@
 /*!
  * @file DFRobot_BC20AT.h
- * @brief This is a command character string needed for NB module.
+ * @brief This file offers the necessary command char strings for a NB module.
  * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
  * @license     The MIT License (MIT)
  * @author      [PengKaixing](kaixing.peng@dfrobot.com)
@@ -15,7 +15,7 @@
 #define     CIMI_INFO                 0
 #define     AT_OK                     (char*)"OK\r\n"
 
-/*Product Identification Information get product information*/
+/*Get product information */
 #define     GET_PII                   (char*)"ATI"
 
 #define     SET_ECHO_0                (char*)"ATE0"
@@ -30,23 +30,23 @@
 #define     CHECK_NB_CARD             (char*)"CIMI"
 #define     CHECK_IMEI_NUM            (char*)"CGSN=1"
 
-/*Manufacturer Identification get manufacturer information*/
+/*Get manufacturer information*/
 #define     TEST_MI                   (char*)"CGMI=?"
 #define     GET_MI                    (char*)"CGMI"
 
-/*Model Identification get module information*/
+/*Get module information*/
 #define     TEST_MM                   (char*)"CGMM=?"
 #define     GET_MM                    (char*)"CGMM"
 
-/*Manufacturer Identification get manufacturer version*/
+/*Get manufacturer version*/
 #define     TEST_MR                   (char*)"CGMR=?"
 #define     GET_MR                    (char*)"CGMR"
 
-/*Signal Quality get signal quality and channel SER*/
+/*Get signal strength and CBER(Channel bit error rate)*/
 #define     TEST_SQ                   (char*)"CSQ=?"
 #define     GET_SQ                    (char*)"CSQ"
 
-/*Extended Signal Quality*/
+/*Get extended signal quality*/
 #define     TEST_ESQ                  (char*)"CESQ=?"
 #define     GET_ESQ                   (char*)"CESQ"
 
