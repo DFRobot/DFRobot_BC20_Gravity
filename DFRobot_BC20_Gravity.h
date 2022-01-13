@@ -1847,8 +1847,8 @@ public:
    * @fn available
    * @brief Check whether there is data available returned from module
    * @return Bool type
-   * @retval 1 Available
-   * @retval 0 Not available
+   * @retval 1 Yes
+   * @retval 0 No
    */
   virtual bool available(void)=0;
   char color = 'R';
