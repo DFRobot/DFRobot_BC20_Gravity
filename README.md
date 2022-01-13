@@ -357,7 +357,7 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn configSleepMode
-   * @brief Set BC20 module to enter sleep mode
+   * @brief Set BC20 module sleep mode
    * @param mode
    * @n     eSleepMode_Disable,
    * @n     eSleepMode_DeepSleep,
