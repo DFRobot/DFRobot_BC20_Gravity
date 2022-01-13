@@ -1,6 +1,6 @@
 /*!
  * @file DFRobot_BC20_Gravity.h
- * @brief This is an integrated MQTT-based module for IoT and satellite information.
+ * @brief This is an IoT communication module based on MQTT and satellite information.
  * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
  * @license     The MIT License (MIT)
  * @author      [PengKaixing](kaixing.peng@dfrobot.com)
@@ -1273,7 +1273,7 @@ public:
 
   /**
    * @fn configKeepalive
-   * @brief Configure keepalive packet sending time after timeout
+   * @brief Configure keepalive packet sending interval time
    * @return Bool type, indicate the status of configuring keepalive time
    * @retval 1 Succeeded
    * @retval 0 Failed
@@ -1337,7 +1337,7 @@ public:
   /**
    * @fn getIMI
    * @brief Get IMSI
-   * @return uint8_t *type, the pointer to identity array
+   * @return uint8_t *type, the pointer to identity code array
    */
   uint8_t *getIMI(void);
 
@@ -1379,7 +1379,7 @@ public:
 
   /*!
    * @fn getQGNSSC
-   * @brief Get GNSS enabling status
+   * @brief Get GNSS status
    * @return uint8_t type
    * @retval 1 Enabled
    * @retval 0 Disabled
@@ -1402,21 +1402,21 @@ public:
    * @fn getQGNSSRD
    * @brief Get all the GNSS information
    * @return uint8_t type
-   * @retval 1 The getting succeeded
-   * @retval 0 The getting failed
+   * @retval 1 Getting data succeeded
+   * @retval 0 Getting data failed
    */
   uint8_t getQGNSSRD(void);
 
   /*!
    * @fn getQGNSSRD2
-   * @brief Get all the GNSS information (designed for boards with smaller RAM like Arduino and UNO)
+   * @brief Get all the GNSS information (designed for boards with smaller RAM like Arduino UNO, etc)
    * @return uint8_t type
    */
   uint8_t getQGNSSRD2(void);
 
   /*!
    * @fn getQGNSSRD(char* sth)
-   * @brief Get information of one type of satellite
+   * @brief Get one type of satellite information 
    * @param sth
    * @n		 NMEA_GGA
    * @n		 NMEA_GLL
@@ -1425,14 +1425,14 @@ public:
    * @n		 NMEA_RMC
    * @n		 NMEA_VTG
    * @return Bool type
-   * @retval 1 The getting succeeded
-   * @retval 0 The getting failed
+   * @retval 1 Getting data succeeded
+   * @retval 0 Getting data failed
    */
   bool getQGNSSRD(char* sth);
 
   /**
    * @fn setAliyunserver
-   * @brief Set information about Aliyun connection
+   * @brief Set information for Aliyun connection
    * @param ProductKey
    * @param IPAddress
    * @param port
@@ -1586,7 +1586,7 @@ public:
 
   /**
    * @fn configSleepMode
-   * @brief Configure sleep mode for BC20 module
+   * @brief Configure BC20 module sleep mode
    * @param mode
    * @n     eSleepMode_Disable
    * @n     eSleepMode_DeepSleep 
@@ -1614,8 +1614,8 @@ public:
    * @n     ePSM_ON
    * @n     ePSM_OFF_ResetParam
    * @return Bool type
-   * @retval 1 The waking up succeeded
-   * @retval 0 The waking up failed
+   * @retval 1 Succeeded
+   * @retval 0 Failed
    */
   bool setPSMMode(ePSM_t status);
 
@@ -1632,25 +1632,25 @@ public:
 
   /**
    * @fn removeSthString(char* sth, char* str)
-   * @brief From a string of characters remove part of them
+   * @brief Remove sth from a char string 
    * @param sth The character string to be analyzed
-   * @param str Reserved character string
-   * @return char*type, remaining character string
+   * @param str The removed character string
+   * @return char*type, character string remained 
    */
   char*removeSthString(char* sth, char* str);
 
   /**
    * @fn removeSthString(String sth, String str)
-   * @brief From a string of characters remove part of them
+   * @brief Remove sth from a char string 
    * @param sth The character string to be analyzed
-   * @param str Removed character string
-   * @return String type, remaining character string
+   * @param str The removed character string
+   * @return String type, character string remained
    */
   String removeSthString(String sth, String str);
 
   /**
    * @fn GetSthfrontString(char* sth, char* str)
-   * @brief From a string of characters get part of them
+   * @brief Get sth from a char string 
    * @param sth The character string to be analyzed
    * @param str Reserved character string
    * @return char*type, reserved character string
@@ -1659,7 +1659,7 @@ public:
 
   /**
    * @fn GetSthfrontString(String sth, String str)
-   * @brief From a string of characters get part of them
+   * @brief Get sth from a char string
    * @param sth The character string to be analyzed
    * @param str Reserved character string
    * @return String type, reserved character string
@@ -1671,8 +1671,8 @@ public:
    * @brief Check whether the character string is present in the data obtained from NB module
    * @param str The character string to be analyzed
    * @return Bool type
-   * @retval 1 The waking up succeeded
-   * @retval 0 The waking up failed
+   * @retval 1 Succeeded
+   * @retval 0 Failed
    */
   bool CheckRecData(char* str);
 
@@ -1684,14 +1684,14 @@ public:
 
   /**
    * @fn getRecData
-   * @brief Gets information about a parameter from the returned data.For example, the CIMI number of the SIM card
+   * @brief Gets information about a parameter from the returned data. For example, the CIMI number of the SIM card
    * @param INFO
    */
   void getRecData(uint8_t INFO);
 
   /**
    * @fn getRecDataforNum
-   * @brief Get data from one of the specified character string
+   * @brief Get data from one specified character string
    * @param num
    * @param buf
    */
@@ -1699,7 +1699,7 @@ public:
 
   /**
    * @fn getRecDataforNum
-   * @brief Get data from one of the specified character string, and check whether the data is standardized
+   * @brief Get data from one specified character string, and check whether the data is standardized
    * @param num
    * @param buf
    */
@@ -1708,9 +1708,9 @@ public:
   /**
    * @fn getIntforString
    * @brief Send the command and get the number specified in the returned command
-   * @param CMD Set the number for commands
+   * @param CMD Set command to be parsed
    * @param basic The data to be analyzed
-   * @param n Get several data
+   * @param n The number of data to be obtained
    * @return uint8_t type
    */
   uint8_t getIntforString(String CMD,String basic,uint8_t n);
@@ -1718,10 +1718,10 @@ public:
   /**
    * @fn getSatelliteInformation
    * @brief Given a satellite data, which satellite does it start with, how many satellites do you have
-   * @param start Starting character
-   * @param num Get data of the satellites
-   * @param str The given satellite data character string
-   * @param sys Flash data to be written
+   * @param start The starting character
+   * @param num The number of satellites to get data from 
+   * @param str Data character string of the given satellite 
+   * @param sys Data to be written to Flash
    * @return uint8_t type
    */
   void getSatelliteInformation(uint8_t start, uint8_t num, char* str, char* sys);
@@ -1770,8 +1770,8 @@ public:
    * @fn stmLowpower
    * @brief Control STM32 to enter low-power mode
    * @return Bool type
-   * @retval 1 The waking up succeeded
-   * @retval 0 The waking up failed
+   * @retval 1 Succeeded
+   * @retval 0 Failed
    */
   bool stmLowpower(void);
 
@@ -1832,20 +1832,20 @@ public:
   /**
    * @fn receviceATCMD
    * @brief Get data from the module
-   * @param timeout Read repeatedly for the duration
+   * @param timeout Read repeatedly within the duration
    */
   virtual void receviceATCMD(uint32_t timeout) =0;
 
   /**
    * @fn sendATCMDBychar
-   * @brief Send data as a character to the module
+   * @brief Send char data to the module
    * @param str 
    */
   virtual void sendATCMDBychar(char str) =0;
 
   /**
    * @fn available
-   * @brief Check whether data returned from module is available
+   * @brief Check whether there is data available returned from module
    * @return Bool type
    * @retval 1 Available
    * @retval 0 Not available
