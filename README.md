@@ -3,7 +3,7 @@
 
 The Gravity:I2C & UART BC20 NB-IoT & GNSS is an IoT communication module with NB-IoT low-power cellular communication and GPS/BeiDou precise positioning functions. As long as your device is within the NB-IoT signal converage area, the data collected by the development board or the device can be easily uploaded into the cloud whether it is indoor or outdoor. This module supports the bidirectional communication and control between cloud and real device by sending commands from cloud to remotely control device, by which to realize "connecting things". It is especially applicable to the environmental monitoring station, bike-sharing, vehicle positioning tracker, and other outdoor IoT application scenarios.
 
-Besides, the equipped GPS/BeiDou dual mode positioning function can help obtain precise geographical coordinates and timing information so as to monitor the device's physical location in real-time when the positioning antenna is placed outdoor. Besides, the onboard RGB indicator provides users with visual device working status. The module works well with 3.3V/5V development boards like Arduino, micro:bit, control board, Raspberry Pi, etc. It employs Gravity I2C & UART standard interface and supports commonly-used development boards in software.
+Besides, the equipped GPS/BeiDou dual mode positioning function can help obtain precise geographical coordinates and timing information so as to monitor the device's physical location in real-time when the positioning antenna is placed outdoor. The onboard RGB indicator provides users with visual device working status. The module works well with 3.3V/5V development boards like Arduino, micro:bit, control board, Raspberry Pi, etc. It employs Gravity I2C & UART standard interface and supports commonly-used development boards in software.
 
 ![正反面svg效果图](./resources/images/TEL0130.png)
 
@@ -541,18 +541,18 @@ To use this library, first download the library file, paste it into the \Arduino
    * @fn stmLowpower
    * @brief Control STM32 to enter low-power mode
    * @return Bool type
-   * @retval 1 The waking up succeeded
-   * @retval 0 The waking up failed
+   * @retval 1 Succeeded
+   * @retval 0 Failed
    */
   bool stmLowpower(void);
 
   /**
    * @fn stmWakeup
    * @brief Control STM32 waking up
-   * @param Awake_Pin Control the pin triggering STM32 waking up
+   * @param Awake_Pin Control the pin triggering STM32 waking-up
    * @return Bool type
-   * @retval 1 The waking up succeeded
-   * @retval 0 The waking up failed
+   * @retval 1 The waking-up succeeded
+   * @retval 0 The waking-up failed
    */
   bool stmWakeup(uint8_t Awake_Pin);
 
@@ -603,23 +603,23 @@ To use this library, first download the library file, paste it into the \Arduino
   /**
    * @fn readData
    * @brief Get data from the module
-   * @param timeout Read repeatedly for the duration
+   * @param timeout Read repeatedly within the duration
    */
   virtual void receviceATCMD(uint32_t timeout) =0;
 
   /**
    * @fn sendATCMDBychar
-   * @brief Send data as a character to the module
+   * @brief Send char data to the module
    * @param str 
    */
   virtual void sendATCMDBychar(char str) =0;
 
   /**
    * @fn available
-   * @brief Check whether data returned from module is available
+   * @brief Check whether there is available data returned from module
    * @return Bool type
-   * @retval 1 Available
-   * @retval 0 Not available
+   * @retval 1 Yes
+   * @retval 0 No
    */
   virtual bool available(void)=0;
   
