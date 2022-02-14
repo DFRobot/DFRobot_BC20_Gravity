@@ -405,7 +405,7 @@ To use this library, first download the library file, paste it into the \Arduino
    * @fn removeSthString
    * @brief Remove sth from a char string 
    * @param sth The character string to be analyzed
-   * @param str The removed character string
+   * @param str The reserved character string
    * @return char* type, character string remained
    */
   char*removeSthString(char* sth, char* str);
@@ -442,8 +442,8 @@ To use this library, first download the library file, paste it into the \Arduino
    * @brief Check whether the character string is present in the data obtained from NB module
    * @param str The character string to be analyzed
    * @return Bool type
-   * @retval 1 succeeded
-   * @retval 0 failed
+   * @retval 1 Existed
+   * @retval 0 Not exist
    */
   bool CheckRecData(char* str);
 
@@ -470,7 +470,7 @@ To use this library, first download the library file, paste it into the \Arduino
 
   /**
    * @fn getRecDataforNum
-   * @brief Get data from a specified character string, and check whether the data is standardized
+   * @brief Get data from a specified character string, and not check whether the data is standardized
    * @param num
    * @param buf
    */
