@@ -1,6 +1,6 @@
 /*!
  * @file DFRobot_BC20_Gravity.cpp
- * @brief This is an integrated MQTT-based module for IoT and satellite information.
+ * @brief This is an IoT communication module based on MQTT and satellite information.
  * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
  * @license     The MIT License (MIT)
  * @author      [PengKaixing](kaixing.peng@dfrobot.com)
