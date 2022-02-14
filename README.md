@@ -405,7 +405,7 @@ To use this library, first download the library file, paste it into the \Arduino
    * @fn removeSthString
    * @brief Remove sth from a char string 
    * @param sth The character string to be analyzed
-   * @param str The reserved character string
+   * @param str The removed character string
    * @return char* type, character string remained
    */
   char*removeSthString(char* sth, char* str);
@@ -424,7 +424,7 @@ To use this library, first download the library file, paste it into the \Arduino
    * @brief Get sth from a char string 
    * @param sth The character string to be analyzed
    * @param str The Reserved character string
-   * @return char* type, character string remained
+   * @return char* type, character string reserved
    */
   char* GetSthfrontString(char* sth, char* str);
 
@@ -433,7 +433,7 @@ To use this library, first download the library file, paste it into the \Arduino
    * @brief Get sth from a char string 
    * @param sth The character string to be analyzed
    * @param str The reserved character string
-   * @return String type, character string remained 
+   * @return String type, character string reserved 
    */
   String GetSthfrontString(String sth, String str);
 
