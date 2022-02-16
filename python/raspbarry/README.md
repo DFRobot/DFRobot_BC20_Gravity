@@ -36,7 +36,7 @@ Download the library to Raspberry Pi before use, then open the routine folder. I
   def get_rec_data_for_num(self,num):
 
   '''
-    @brief Get data from one of the specified character string, and not check whether the data is standardized
+    @brief Get data from a specified character string, and not check whether the data is standardized
     @param num
   '''
   def get_rec_data_for_num_no_check(self,num):
